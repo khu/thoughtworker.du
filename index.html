@@ -1,49 +1,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="scripts/jquery-1.7.1.js"></script>
 <script type="text/javascript" src="http://www.douban.com/js/api.js?v=2" ></script>
 <script type="text/javascript" src="http://www.douban.com/js/api-parser.js?v=1"></script>
+<script type="text/javascript" src="scripts/douban.books.js"></script>
+<script type="text/javascript" src="scripts/douban.books.fav_books.js"></script>
+<script type="text/javascript" src="scripts/douban.books.js"></script>
 <script type="text/javascript">
-DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
-
-var all_books = []
-function fetch_books(start_index) {
-	DOUBAN.getUserCollection({
-	 uid:'3561405',
-	 cat:'book',
-	 status:'read',
-	 maxresults:'50',
-	 startindex:start_index,
-	 callback:function(books){
-	  if (books.entry.length == 0) {
-		render(all_books)
-		return;
-	  }
-	  for(var idx = 0; idx < books.entry.length; idx++) {
-		all_books.push(books.entry[idx])	
-	  }
-	  fetch_books(start_index + 50)
-	 }
-	});
-}
-
-function render(books) {
-  var books = all_books;
-  var html = "<h1> " + all_books.length+ " <h1><ul>"
-  for(var idx = 0; idx < books.length; idx++) {
-   var aBook = DOUBAN.parseSubject(books[idx]['db:subject']);
-   var tl = books[idx]["db:subject"]["title"]["$t"] ? books[idx]["db:subject"]["title"]["$t"] : "";
-   html += "<li><a href='" + aBook.link.alternate + "' target='_blank'>";
-   html += "<img src='"+ aBook.link.image + "' alt='" + tl +"'>"+ tl + "</a></li>";
-  }
-  document.getElementById("book_list").innerHTML = html += "</ul>";
-}
-
-fetch_books(1)
-
+new DOUBAN.BOOKS(["3561405"], new DOUBAN.BOOKS.FAVBOOKS()).fetch_books()
 </script>
 </head>
 <body>
-<h1 id="book_list">douban</h1>
+<h1 id="books_in_total">douban</h1>
+<div id="content">douban</div>
 </body>
 </html>
