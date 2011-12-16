@@ -4,11 +4,13 @@
 <script type="text/javascript" src="scripts/jquery-1.7.1.js"></script>
 <script type="text/javascript" src="http://www.douban.com/js/api.js?v=2" ></script>
 <script type="text/javascript" src="http://www.douban.com/js/api-parser.js?v=1"></script>
+<script type="text/javascript" src="scripts/douban.domain.books.js"></script>
 <script type="text/javascript" src="scripts/douban.books.js"></script>
 <script type="text/javascript" src="scripts/douban.books.fav_books.js"></script>
 <script type="text/javascript" src="scripts/douban.books.js"></script>
+
 <script type="text/javascript">
-new DOUBAN.BOOKS(["3561405"], new DOUBAN.BOOKS.FAVBOOKS()).fetch_books()
+new DOUBAN.BOOKS.FETCHER(["3561405"], new DOUBAN.BOOKS.FAVBOOKS()).fetch_books()
 </script>
 </head>
 <body>

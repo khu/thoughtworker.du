@@ -1,15 +1,9 @@
 window["DOUBAN"]["BOOKS"]["FAVBOOKS"] = function() {
-	this.act_with = function(all_books, books_for_individual) {
-		$("#books_in_total").html(all_books.length);
-		var html = "<ul><li>"
-		for(var idx = 0; idx < books_for_individual.length; idx++) {
-			var aBook = DOUBAN.parseSubject(books_for_individual[idx]['db:subject']);
-			var title = books_for_individual[idx]["db:subject"]["title"]["$t"] ? books_for_individual[idx]["db:subject"]["title"]["$t"] : "";
-			var douban_link = aBook.link.alternate;
-			var image = aBook.link.image;
-			var alt_image = title;
-			html += "<li><a href='" + aBook.link.alternate + "' target='_blank'>";
-			html += "<img src='"+ aBook.link.image + "' alt='" + title +"'>"+ title + "</a></li>";
+	this.act_with = function(books_for_individual) {
+		var html = "<ul>"
+		for(var idx = 0; idx < books_for_individual.size(); idx++) {
+			html += "<li><a href='" + books_for_individual.get(idx).douban_url + "' target='_blank'>";
+			html += "<img src='"+ books_for_individual.get(idx).image_url + "'></a></li>";
 		}
 		$("#content").html(html += "</ul>")
 	};
