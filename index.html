@@ -7,26 +7,14 @@
 <script type="text/javascript" src="scripts/douban.domain.books.js"></script>
 <script type="text/javascript" src="scripts/douban.books.js"></script>
 <script type="text/javascript" src="scripts/douban.books.fav_books.js"></script>
+<script type="text/javascript" src="scripts/douban.books.recent_books.js"></script>
 <script type="text/javascript" src="scripts/douban.books.js"></script>
 
 <script type="text/javascript">
-new DOUBAN.BOOKS.FETCHER(["3561405"], [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS()]).fetch_books()
+new DOUBAN.BOOKS.FETCHER(["3561405", '1740006', '2499912', 'gigix', 'dearwolf', 'wj1s'], [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS()]).fetch_books()
 </script>
 
-<style>
-	#content li {
-		float: left;
-		width: 20%;
-		height:500px;
-	}
-	
-	#content li img {
-		width: 60%;
-		height:60%;
-		padding: 10px;
-		border: 2px solid #ccc;
-	}
-</style>
+<link href="css.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <h1 id="books_in_total">douban</h1>
