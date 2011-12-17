@@ -24,7 +24,9 @@ window["DOUBAN"]["BOOKS"]["FETCHER"] = function(ids, douban_books_callback) {
 			startindex:start_index,
 			callback:function(books){
 				if (books.entry.length == 0) {
-					douban_books_callback.act_with(books_for_individual);
+					for (var i =0; i < douban_books_callback.length;i++) {
+						douban_books_callback[i].act_with(books_for_individual);
+					}
 					return;
 				}
 				for(var idx = 0; idx < books.entry.length; idx++) {
