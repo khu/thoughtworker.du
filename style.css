@@ -61,12 +61,10 @@ body {
     background:#FFF;
 }
 
-#content {
+.books {
+	margin:0px;
     padding-top:50px;
-}
-
-#recent {
-    padding-top:50px;
+	padding-left:40px;
 }
 
 #thoughtworker_du{
