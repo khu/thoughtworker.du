@@ -3,11 +3,12 @@ li {
   float: left;
   width: 300px;
   height:400px;
+  border: 2px solid #ccc;
+
 }
 
 li img {
   padding: 2px;
-  border: 2px solid #ccc;
 }
 
 li .read-time {
