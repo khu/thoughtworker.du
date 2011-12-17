@@ -52,12 +52,23 @@ body {
     text-align:center;
     display:inline-block;
 }
+
+#nav div:hover{
+	cursor:pointer;
+}
+
 #nav .active {
     background:#FFF;
 }
+
 #content {
     padding-top:50px;
 }
+
+#recent {
+    padding-top:50px;
+}
+
 #thoughtworker_du{
     margin:20px;
     padding-right:70px;
