@@ -1,15 +1,14 @@
 li {
   list-style:none;
   float: left;
-  width: 20%;
-  height:500px;
+  width: 300px;
+  height:400px;
+  border: 2px solid #ccc;
+
 }
 
 li img {
-  width: 60%;
-  height:60%;
-  padding: 10px;
-  border: 2px solid #ccc;
+  padding: 2px;
 }
 
 li .read-time {
@@ -26,6 +25,22 @@ li .read-time {
   opacity: 0.7;
 }
 
+.recent{
+	clear: both;
+}
+
+.recent li {
+	width: 100px;
+	height: 150px;
+}
+
+.recent img {
+	width: 70px;
+	height: 94px;
+}
+.people_icon {
+	margin-right:20px;
+}
 body {
     font-family:Arial,Helvetica,sans-serif;
     margin:0px;
