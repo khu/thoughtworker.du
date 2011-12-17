@@ -9,6 +9,7 @@
 <script type="text/javascript" src="scripts/douban.books.fav_books.js"></script>
 <script type="text/javascript" src="scripts/douban.books.recent_books.js"></script>
 <script type="text/javascript" src="scripts/douban.books.js"></script>
+<script type="text/javascript" src="scripts/nav_to.js"></script>
 
 <script type="text/javascript">
 new DOUBAN.BOOKS.FETCHER(["3561405", '1740006', '2499912', 'gigix', 'dearwolf', 'wj1s'], [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS()]).fetch_books()
@@ -20,8 +21,8 @@ new DOUBAN.BOOKS.FETCHER(["3561405", '1740006', '2499912', 'gigix', 'dearwolf', 
     <div id="banner">
         <h1 id="thoughtworker_du">Thoughtwoker Du</h1>
         <div id="nav">
-            <div class="active">Read</div>
-            <div class="inactive">Recent</div>
+            <div id="read_tab" class="active">Read</div>
+            <div id="recent_tab" class="inactive">Recent</div>
         </div>
     </div>
     <div id="content">douban</div>

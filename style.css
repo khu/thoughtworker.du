@@ -52,9 +52,15 @@ body {
     text-align:center;
     display:inline-block;
 }
+
+#nav div:hover{
+	cursor:pointer;
+}
+
 #nav .active {
     background:#FFF;
 }
+
 #content {
     padding-top:50px;
 }
