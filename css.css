@@ -1,0 +1,16 @@
+li {
+  float: left;
+  width: 20%;
+  height:500px;
+}
+
+li img {
+  width: 60%;
+  height:60%;
+  padding: 10px;
+  border: 2px solid #ccc;
+}
+
+li .read-time {
+  transform: rotate(90deg);
+}
