@@ -16,8 +16,7 @@ window["DOUBAN"]["BOOKS"]["RECENTBOOKS"] = function() {
 				callback:function(json){
 					var user = DOUBAN.parseUser(json);
 					var icon_url = user.link.icon;
-					var nid = user.nid
-					$("#" + nid).html("<image src=" + icon_url + "/>")
+					$("#" + douban_id).html("<image src=" + icon_url + "/>")
 				} 
 			})
 			$("#recent").append(html)
