@@ -1,19 +1,19 @@
 var navigation = function() {
-    $("#recent_tab").click(function(){
-        $("#read").toggle();
-        $("#recent").toggle();
-        $("#nav a").attr("class","inactive");
-        $(this).attr("class","active");
-        return false;
-    });
+  $("#recent_tab").click(function(){
+    $("#read").hide();
+    $("#recent").show();
+    $("#nav .nav_tab").removeClass("active");
+    $(this).addClass("active");
+    return false;
+  });
 
-    $("#read_tab").click(function(){
-        $("#read").toggle();
-        $("#recent").toggle();
-        $("#nav a").attr("class","inactive");
-        $(this).attr("class","active");
-        return false;
-    });
+  $("#read_tab").click(function(){
+    $("#recent").hide();
+    $("#read").show();
+    $("#nav .nav_tab").removeClass("active");
+    $(this).addClass("active");
+    return false;
+  });
 };
 
 var fetchBooks = function() {
