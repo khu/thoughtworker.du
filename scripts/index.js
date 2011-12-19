@@ -1,15 +1,15 @@
 $(function() {
   var twers = [
     { id: "2627015", name: "name" },
-    { id: "toafu", name: "Zhang Kaifeng" },
-    { id: "dakimo", name: "name" },
-    { id: "doovsaid", name: "name" },
-    { id: "3561405", name: "Hu Kai" },
-    { id: "1740006", name: "Ren Xiaojun" },
-    { id: "2499912", name: "Ma Bowen" },
-    { id: "gigix", name: "Xiong Jie" },
-    { id: "dearwolf", name: "Li Jian" },
-    { id: "wj1s", name: "name" },
+    { id: "toafu", name: "张凯峰" },
+    { id: "dakimo", name: "Wang Weiyang" },
+    { id: "doovsaid", name: "张毅" },
+    { id: "3561405", name: "胡凯" },
+    { id: "1740006", name: "任晓君" },
+    { id: "2499912", name: "马博文" },
+    { id: "gigix", name: "熊节" },
+    { id: "dearwolf", name: "李剑" },
+    { id: "wj1s", name: "王健" },
   ];
   new DOUBAN.BOOKS.FETCHER(twers, [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS()]).fetch_books()
 });
