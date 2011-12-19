@@ -1,10 +1,14 @@
+body {
+  font-family: Arial,Helvetica,sans-serif;
+  margin: 0px;
+}
 
 li, li a {
-  display:block;
-  list-style:none;
+  display: block;
+  list-style: none;
   float: left;
   width: 300px;
-  height:400px;
+  height: 400px;
   text-align: center;
 }
 
@@ -30,66 +34,67 @@ li .read-time {
 }
 
 .recent{
-	clear: both;
+  clear: both;
 }
 
 .recent li, .recent li a {
-	width: 100px;
-	height: 150px;
+  width: 100px;
+  height: 150px;
 }
 
 .recent img {
-	width: 70px;
-	height: 94px;
+  width: 70px;
+  height: 94px;
 }
+
 .people_icon {
-	margin-right:40px;
-}
-body {
-    font-family:Arial,Helvetica,sans-serif;
-    margin:0px;
+  margin-right: 40px;
 }
 
 #banner {
-    height:50px;
-    width:100%;
-    background:#E9F4E9;
+  height: 50px;
+  width: 100%;
+  background: #E9F4E9;
 }
+
 #nav {
-    position:relative;
-    top:24px;
-    float:left;
-    margin-left:40px;
+  position: relative;
+  top: 24px;
+  float: left;
+  margin-left: 40px;
 }
+
 #nav .inactive:hover{
-    background:#F5F5EB;
+  background: #F5F5EB;
 }
 
-#nav div{
-    width:200px;
-    font-size:22px;
-    margin-right:10px;
-    text-align:center;
-    display:inline-block;
-}
-
-#nav div:hover{
-	cursor:pointer;
+#nav a {
+  color: #000;
+  width: 200px;
+  font-size: 22px;
+  margin-right: 10px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
 }
 
 #nav .active {
-    background:#FFF;
+  background: #FFF;
 }
 
 .books {
-	margin:0px;
-    padding-top:50px;
-	padding-left:40px;
+  margin: 0px;
+  padding-top: 50px;
+  padding-left: 40px;
+}
+
+#recent {
+  display: none;
 }
 
 #thoughtworker_du{
-    margin:20px;
-    padding-right:70px;
-    display:inline-block;
-    float:right;
+    margin: 20px;
+    padding-right: 70px;
+    display: inline-block;
+    float: right;
 }

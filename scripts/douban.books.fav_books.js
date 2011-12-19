@@ -50,6 +50,6 @@ window["DOUBAN"]["BOOKS"]["FAVBOOKS"] = function() {
 
             content.append(bookItem);
         }
-        $("#content").append(content)
+        $("#read").append(content)
     };
 }

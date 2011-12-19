@@ -1,4 +1,22 @@
-$(function() {
+var navigation = function() {
+    $("#recent_tab").click(function(){
+        $("#read").toggle();
+        $("#recent").toggle();
+        $("#nav a").attr("class","inactive");
+        $(this).attr("class","active");
+        return false;
+    });
+
+    $("#read_tab").click(function(){
+        $("#read").toggle();
+        $("#recent").toggle();
+        $("#nav a").attr("class","inactive");
+        $(this).attr("class","active");
+        return false;
+    });
+};
+
+var fetchBooks = function() {
   var twers = [
     { id: "2627015", name: "name" },
     { id: "toafu", name: "张凯峰" },
@@ -12,4 +30,9 @@ $(function() {
     { id: "wj1s", name: "王健" },
   ];
   new DOUBAN.BOOKS.FETCHER(twers, [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS()]).fetch_books()
+};
+
+$(function() {
+  navigation();
+  fetchBooks();
 });

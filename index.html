@@ -9,7 +9,6 @@
 <script type="text/javascript" src="scripts/douban.books.fav_books.js"></script>
 <script type="text/javascript" src="scripts/douban.books.recent_books.js"></script>
 <script type="text/javascript" src="scripts/douban.books.js"></script>
-<script type="text/javascript" src="scripts/nav_to.js"></script>
 <script type="text/javascript" src="scripts/index.js"></script>
 
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -18,11 +17,11 @@
     <div id="banner">
         <h1 id="thoughtworker_du">Thoughtwoker Du</h1>
         <div id="nav">
-            <div id="read_tab" class="active">Read</div>
-            <div id="recent_tab" class="inactive">Recent</div>
+            <a id="read_tab" class="nav_tab active" href="#read">Read</a>
+            <a id="recent_tab" class="nav_tab inactive" href="#recent">Recent</a>
         </div>
     </div>
-    <div id="content" class="books"></div>
+    <div id="read" class="books"></div>
     <div id="recent" class="books"></div>
 </body>
 </html>
