@@ -2,10 +2,11 @@ if (!window["DOUBAN"]["BOOKS"]) window["DOUBAN"]["BOOKS"] = {}
 window["DOUBAN"]["BOOKS"]["DOMAIN"] = {}
 
 
-window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOK"] = function(douban_id, image_url, book_url) {
+window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOK"] = function(twer, image_url, book_url) {
 	this.image_url = image_url;
 	this.book_url  = book_url;
-	this.douban_id = douban_id;
+	this.douban_id = twer.id;
+	this.name = twer.name;
 }
 
 
