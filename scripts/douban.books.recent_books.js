@@ -1,10 +1,10 @@
 window["DOUBAN"]["BOOKS"]["RECENTBOOKS"] = function() {
 	this.act_with = function(books_for_individual) {
 		if (books_for_individual.size() > 0) {
-      var twer = books_for_individual.get(0);
-			var douban_id = twer.douban_id
+      var contact = books_for_individual.get(0);
+			var douban_id = contact.douban_id;
 			var html = "<ul class='recent'>"
-      html += "<li>" + twer.name + "</li>"
+      html += "<li>" + contact.name + "</li>"
       html += "<li class='people_icon'><a  href='http://book.douban.com/people/" + douban_id + "/'  id=" + douban_id + "></a></li>"
 			var recent_read = books_for_individual.size() > 5? 5 : books_for_individual.size()
 
