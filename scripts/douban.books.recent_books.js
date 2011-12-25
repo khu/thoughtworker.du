@@ -6,7 +6,7 @@ window["DOUBAN"]["BOOKS"]["RECENTBOOKS"] = function() {
     var books = books_for_individual.slice(5);
 
     var people_icon_section = $("#recent-people-template").tmpl(contact);
-    var book_element = $("#recent-books-template").tmpl( books );
+    var book_element = $("#recent-books-template").tmpl(books);
     book_info(book_element);
     var books_section = $("<ul class='recent'></ul>").append(book_element);
     $("<p></p>").append(people_icon_section).append(books_section).appendTo("#recent")

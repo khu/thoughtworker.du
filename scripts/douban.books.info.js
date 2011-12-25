@@ -1,5 +1,5 @@
 var book_info = function(book_element) {
-  book_element.mouseenter(function() {
+  book_element.on('mouseover', function() {
     var $this = $(this);
     var $desc = $("#book_description")
     var t = setTimeout(function() {
@@ -19,7 +19,7 @@ var book_info = function(book_element) {
     $desc.data('timeout', t);
   });
 
-  $("#book_description").mouseout(function() {
+  $("#book_description").on('mouseout', function() {
     var $this = $(this);
     clearTimeout($this.data('timeout'));
     $this.hide();

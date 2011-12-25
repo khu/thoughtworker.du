@@ -1,0 +1,126 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: url(../img/bg.png) repeat;
+}
+
+a {
+  color: #9f890f;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.clear:after {
+  content: "";
+  clear: both;
+  height: 0;
+  display: block;
+  visibility: hidden;
+}
+
+#banner {
+  background: #fff;
+  border-bottom: #ffd400 solid 5px;
+  -webkit-box-shadow: rgba(34, 25, 25, 0.398438) 0 1px 3px;
+  box-shadow: rgba(34, 25, 25, 0.398438) 0 1px 3px;
+  padding: 10px 0 10px 5px;
+}
+
+.logo {
+  padding-right: 100px;
+}
+
+.nav_tab {
+  padding: 10px;
+  width: 100px;
+}
+
+.nav_tab.active {
+  background: #ffd400;
+  color: #fff;
+}
+
+.nav_tab.active:hover {
+  text-decoration: none;
+}
+
+.books {
+  margin: 0 auto;
+}
+
+.books li {
+  color: #fff;
+  margin: 20px 0 0 0;
+  -webkit-box-shadow: rgba(34, 25, 25, 0.398438) 0 1px 3px;
+  background-color: #FFFFFF;
+  box-shadow: rgba(34, 25, 25, 0.398438) 0 1px 3px;
+  font-size: 12px;
+  float: left;
+  width: 250px;
+  text-align: center;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.books .img_link {
+  display: block;
+}
+
+.books li img {
+  max-width: 210px;
+  margin: 20px;
+}
+
+.books li span {
+  display: block;
+  height: 51px;
+  background: #f5f5f5;
+  padding-top: 10px;
+  color: #111;
+}
+
+.books li span a {
+  margin-right: 2px;
+}
+
+.books li span img.avatar {
+  float: left;
+  width: 40px;
+  margin: 0 10px 8px 10px;
+}
+
+.books li .small-book {
+  width: 80px;
+  padding: 2px;
+  border: 1px solid #eee;
+  margin: 15px 0 6px 10px;
+}
+
+.book-num {
+  background: #ffd400;
+  font-weight: bold;
+  left: -66px;
+  padding: 2px 8px;
+  position: relative;
+  top: 23px;
+}
+
+#recent {
+  display: none;
+}
+
+#book_description {
+  display: none;
+  position: absolute;
+  width: 300px;
+  max-height: 200px;
+  overflow: auto;
+  color: #fff;
+  background-color: #444;
+}
