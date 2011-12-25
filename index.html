@@ -3,6 +3,7 @@
     <title>ThoughtWorker Du</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="text/javascript" src="scripts/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="scripts/jquery.template.js"></script>
     <script type="text/javascript" src="http://www.douban.com/js/api.js?v=2" ></script>
     <script type="text/javascript" src="http://www.douban.com/js/api-parser.js?v=1"></script>
     <script type="text/javascript" src="scripts/douban.domain.books.js"></script>
@@ -24,5 +25,11 @@
     </div>
     <div id="read" class="books"></div>
     <div id="recent" class="books"></div>
+	<script id="recent-people-template" type="text/x-jquery-tmpl">
+		<h3><a href="${homepage_url}"><image src="${people_icon}"/></a></h3>
+	</script>
+	<script id="recent-books-template" type="text/x-jquery-tmpl">
+		<li><a href="${book_url}"><img src="${book_cover_image}"/></a></li>
+	</script>
 </body>
 </html>
