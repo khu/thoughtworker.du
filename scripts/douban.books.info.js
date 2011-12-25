@@ -30,4 +30,5 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOK_INFO"] = function(id, book) {
   this.id = id;
   this.title = book.title ? book.title.$t : "";
   this.summary = book.summary ? book.summary.$t : "";
+  this.rating = book["gd:rating"] ? book["gd:rating"]["@average"] : "";
 }
