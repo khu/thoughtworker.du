@@ -1,5 +1,5 @@
 body {
-  font-family: Arial,Helvetica,sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0px;
 }
 
@@ -33,7 +33,7 @@ li .read-time {
   opacity: 0.7;
 }
 
-.recent{
+.recent {
   clear: both;
 }
 
@@ -74,7 +74,7 @@ li .read-time {
   text-decoration: none;
 }
 
-#nav a:hover{
+#nav a:hover {
   background: #F5F5EB;
 }
 
@@ -92,11 +92,11 @@ li .read-time {
   display: none;
 }
 
-#thoughtworker_du{
-    margin: 20px;
-    padding-right: 70px;
-    display: inline-block;
-    float: right;
+#thoughtworker_du {
+  margin: 20px;
+  padding-right: 70px;
+  display: inline-block;
+  float: right;
 }
 
 #book_description {
