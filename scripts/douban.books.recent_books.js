@@ -4,7 +4,9 @@ window["DOUBAN"]["BOOKS"]["RECENTBOOKS"] = function() {
       var contact = books_for_individual.get(0).contact;
       var books = books_for_individual.slice(5);
 
-      $("<p></p>").append($("#recent-people-template").tmpl(contact)).append($("<ul class='recent'></ul>").append($("#recent-books-template").tmpl( books ))).appendTo("#recent")
+      var book_el = $("#recent-books-template").tmpl( books )
+      book_info(book_el);
+      $("<p></p>").append($("#recent-people-template").tmpl(contact)).append($("<ul class='recent'></ul>").append(book_el)).appendTo("#recent")
     }
   };
 }

@@ -17,7 +17,6 @@ var navigation = function() {
 };
 
 var getContacts = function(uid, callback) {
-  DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
   DOUBAN.getUserContacts({
     uid :uid,
     callback :function(users){
@@ -27,6 +26,7 @@ var getContacts = function(uid, callback) {
 }
 
 $(function() {
+  DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
   navigation();
   getContacts("ThoughWorks", function(contacts) {
     new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS()]).fetch_books()

@@ -98,3 +98,13 @@ li .read-time {
     display: inline-block;
     float: right;
 }
+
+#book_description {
+  display: none;
+  position: absolute;
+  width: 300px;
+  max-height: 200px;
+  overflow: auto;
+  color: #fff;
+  background-color: #444;
+}

@@ -12,6 +12,7 @@
     <script type="text/javascript" src="scripts/douban.books.fav_books.js"></script>
     <script type="text/javascript" src="scripts/douban.books.recent_books.js"></script>
     <script type="text/javascript" src="scripts/douban.books.js"></script>
+    <script type="text/javascript" src="scripts/douban.books.info.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
 
     <link href="style.css" rel="stylesheet" type="text/css" />
@@ -26,11 +27,17 @@
     </div>
     <div id="read" class="books"></div>
     <div id="recent" class="books"></div>
-	<script id="recent-people-template" type="text/x-jquery-tmpl">
+  <script id="recent-people-template" type="text/x-jquery-tmpl">
     <h3><a href="${book_page_url}"><img src="${image_icon}" />${name}</a></h3>
-	</script>
-	<script id="recent-books-template" type="text/x-jquery-tmpl">
-    <li><a title="${title}" href="${book_url}"><img alt="${title}" src="${cover_image_url}"/></a></li>
-	</script>
+  </script>
+  <script id="recent-books-template" type="text/x-jquery-tmpl">
+    <li><a data-book-id="${id}" title="${title}" href="${book_url}"><img alt="${title}" src="${cover_image_url}"/></a></li>
+  </script>
+  <script id="book-description-template" type="text/x-jquery-tmpl">
+    <h4>${title}</h4>
+    <p>${summary}</p>
+  </script>
+  <div id="book_description">
+  </div>
 </body>
 </html>

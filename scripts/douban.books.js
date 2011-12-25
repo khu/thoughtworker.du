@@ -11,7 +11,6 @@ window["DOUBAN"]["BOOKS"]["FETCHER"] = function(contacts, douban_books_callback)
 		return new DOUBAN.BOOKS.DOMAIN.BOOK(contact, book);
 	}
 	this.fetch_books_for = function(contact, start_index, books_for_individual) {
-		DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
 		var doubanbooks = this;
 		DOUBAN.getUserCollection({
 			uid: contact.nid,

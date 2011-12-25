@@ -2,6 +2,7 @@ if (!window["DOUBAN"]["BOOKS"]) window["DOUBAN"]["BOOKS"] = {}
 window["DOUBAN"]["BOOKS"]["DOMAIN"] = {}
 
 window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOK"] = function(contact, book) {
+  this.id = book.nid
   this.image_url = book.link.image.replace("spic", "lpic");
   this.book_url  = book.link.alternate;
   this.cover_image_url = this.image_url.replace("lpic", "spic");
