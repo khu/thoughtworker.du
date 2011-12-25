@@ -16,23 +16,23 @@ var navigation = function() {
   });
 };
 
-var fetchBooks = function() {
-  var twers = [
-    { id: "2627015", name: "name" },
-    { id: "toafu", name: "张凯峰" },
-    { id: "dakimo", name: "Wang Weiyang" },
-    { id: "doovsaid", name: "张毅" },
-    { id: "3561405", name: "胡凯" },
-    { id: "1740006", name: "任晓君" },
-    { id: "2499912", name: "马博文" },
-    { id: "gigix", name: "熊节" },
-    { id: "dearwolf", name: "李剑" },
-    { id: "wj1s", name: "王健" },
-  ];
-  new DOUBAN.BOOKS.FETCHER(twers, [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS()]).fetch_books()
+var fetchBooks = function(contacts) {
+  new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS()]).fetch_books()
 };
+
+var getContacts = function(uid, callback) {
+  DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
+  DOUBAN.getUserContacts({
+    uid :uid,
+    callback :function(users){
+      callback(DOUBAN.parseUsers(users).entries);
+    }
+  });
+}
 
 $(function() {
   navigation();
-  fetchBooks();
+  getContacts("ThoughWorks", function(contacts) {
+    new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS()]).fetch_books()
+  });
 });
