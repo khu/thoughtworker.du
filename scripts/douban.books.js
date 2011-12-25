@@ -7,11 +7,8 @@ window["DOUBAN"]["BOOKS"]["FETCHER"] = function(contacts, douban_books_callback)
 		}
 	};
 	this._parse = function(contact, book) {
-		var aBook = DOUBAN.parseSubject(book['db:subject']);
-		var image = aBook.link.image;
-		var image_url = image.replace("spic", "lpic");
-		var douban_url = aBook.link.alternate;
-		return new DOUBAN.BOOKS.DOMAIN.BOOK(contact, image_url, douban_url)
+		var book = DOUBAN.parseSubject(book['db:subject']);
+		return new DOUBAN.BOOKS.DOMAIN.BOOK(contact, book);
 	}
 	this.fetch_books_for = function(contact, start_index, books_for_individual) {
 		DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
