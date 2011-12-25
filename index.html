@@ -27,10 +27,10 @@
     <div id="read" class="books"></div>
     <div id="recent" class="books"></div>
 	<script id="recent-people-template" type="text/x-jquery-tmpl">
-    <h3><a href="${homepage_url}"><img src="${people_icon}" />${name}</a></h3>
+    <h3><a href="${book_page_url}"><img src="${image_icon}" />${name}</a></h3>
 	</script>
 	<script id="recent-books-template" type="text/x-jquery-tmpl">
-		<li><a href="${book_url}"><img src="${book_cover_image}"/></a></li>
+    <li><a title="${title}" href="${book_url}"><img alt="${title}" src="${cover_image_url}"/></a></li>
 	</script>
 </body>
 </html>
