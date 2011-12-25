@@ -16,10 +16,6 @@ var navigation = function() {
   });
 };
 
-var fetchBooks = function(contacts) {
-  new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS()]).fetch_books()
-};
-
 var getContacts = function(uid, callback) {
   DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
   DOUBAN.getUserContacts({
