@@ -28,7 +28,8 @@ var getContacts = function(uid, callback) {
 $(function() {
   DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
   navigation();
-  getContacts("ThoughWorks", function(contacts) {
+  var id = window.location.search == ""? "thoughworks" : window.location.search.replace("?id=", "")
+  getContacts(id, function(contacts) {
     new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS()]).fetch_books()
   });
 });

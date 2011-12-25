@@ -27,13 +27,16 @@
     </div>
     <div id="read" class="books"></div>
     <div id="recent" class="books"></div>
+  <script id="fav-books-template" type="text/x-jquery-tmpl">
+      <li><a target="_blank" title="${title}" href="${book_url}"><img onload="setImageSize(this,280,380)" alt="${title}" src="${image_url}"/></a></li>
+  </script>
   <script id="recent-people-template" type="text/x-jquery-tmpl">
-    <h3><a href="${book_page_url}"><img src="${image_icon}" />${name}</a></h3>
+      <h3><a href="${book_page_url}"><img src="${image_icon}" />${name}</a></h3>
   </script>
   <script id="recent-books-template" type="text/x-jquery-tmpl">
-    <li><a data-book-id="${id}" title="${title}" href="${book_url}"><img alt="${title}" src="${cover_image_url}"/></a></li>
+      <li><a data-book-id="${id}" title="${title}" href="${book_url}"><img alt="${title}" src="${cover_image_url}"/></a></li>
   </script>
-  <script id="book-description-template" type="text/x-jquery-tmpl">
+    <script id="book-description-template" type="text/x-jquery-tmpl">
     <h4>${title}</h4>
     <p>${summary}</p>
   </script>
