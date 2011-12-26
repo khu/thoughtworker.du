@@ -35,7 +35,7 @@
     </div>
     <script id="fav-books-template" type="text/x-jquery-tmpl">
         <p>
-            <a class="img_link" target="_blank" title="${title}" href="${book_url}">
+            <a target="_blank" title="${title}" href="${book_url}">
                 <img alt="${title}" src="${image_url}"/>
             </a>
         </p>
@@ -44,10 +44,10 @@
         <div class="threecol">
             <p>
                 <span>
-                    <a href="${book_page_url}">
+                    <a target="_blank" href="${book_page_url}">
                         <img class="avatar" src="${image_icon}" />
                     </a>
-                    <a href="${book_page_url}">
+                    <a target="_blank" href="${book_page_url}">
                         ${name}
                     </a>
                 </span>
@@ -55,8 +55,8 @@
         </div>
     </script>
     <script id="recent-books-template" type="text/x-jquery-tmpl">
-        <a data-book-id="${id}" title="${title}" href="${book_url}">
-            <img alt="${title}" src="${cover_image_url}"/>
+        <a target="_blank" data-book-id="${id}" title="${title}" href="${book_url}">
+            <img class="small-book" alt="${title}" src="${cover_image_url}"/>
         </a>
     </script>
     <script id="book-description-template" type="text/x-jquery-tmpl">
