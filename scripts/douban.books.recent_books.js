@@ -1,4 +1,4 @@
-window["DOUBAN"]["BOOKS"]["RECENTBOOKS"] = function() {
+window["DOUBAN"]["BOOKS"]["RECENTBOOKS"] = function(recent_book_el) {
   this.act_with = function(books_for_individual) {
     if (books_for_individual.size() == 0) return;
 
@@ -7,8 +7,9 @@ window["DOUBAN"]["BOOKS"]["RECENTBOOKS"] = function() {
 
     var people_icon_section = $("#recent-people-template").tmpl(contact);
     var book_element = $("#recent-books-template").tmpl(books);
+    book_element = $('<p></p>').append(book_element);
     book_info(book_element);
-    var books_section = $("<ul class='recent'></ul>").append(book_element);
-    $("<p></p>").append(people_icon_section).append(books_section).appendTo("#recent");
+    var books_section = $('<div class="ninecol last"></div>').append(book_element);
+    $(recent_book_el).append(people_icon_section).append(books_section);
   };
 }

@@ -32,9 +32,9 @@ function setImageSize(imgobj, iPreImg_w, iPreImg_h) {
   }
 }
 
-window["DOUBAN"]["BOOKS"]["FAVBOOKS"] = function() {
+window["DOUBAN"]["BOOKS"]["FAVBOOKS"] = function(fav_book_el) {
   this.act_with = function(books_for_individual) {
     var each_book = $("#fav-books-template").tmpl(books_for_individual.books);
-    $('#read ul').append(each_book);
+    $(fav_book_el).append(each_book);
   };
 }

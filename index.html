@@ -17,28 +17,47 @@
     <script type="text/javascript" src="scripts/douban.book.tags.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
 
+    <link href="styles/1140.css" rel="stylesheet" type="text/css" />
+    <link href="styles/ie.css" rel="stylesheet" type="text/css" />
     <link href="styles/styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div id="wapper">
-        <div id="banner">
-            <h1 id="thoughtworker_du">Thoughtwoker Du</h1>
+    <div class="container">
+        <div id="banner" class="row">
+            <img class="logo" src="img/logo.png" alt="ThoughtWorker.Du" />
             <a id="read_tab" class="nav_tab active" href="#read">Read</a>
             <a id="recent_tab" class="nav_tab" href="#recent">Recent</a>
         </div>
-        <div id="read" class="books"><ul></ul></div>
-        <div id="recent" class="books hide"></div>
+        <div id="read" class="books row"></div>
+        <div id="recent" class="books row hide"></div>
         <div id="tags"></div>
         <div id="book_description"></div>
     </div>
     <script id="fav-books-template" type="text/x-jquery-tmpl">
-        <li><a class="img_link" target="_blank" title="${title}" href="${book_url}"><img alt="${title}" src="${image_url}"/></a></li>
+        <p>
+            <a class="img_link" target="_blank" title="${title}" href="${book_url}">
+                <img alt="${title}" src="${image_url}"/>
+            </a>
+        </p>
     </script>
     <script id="recent-people-template" type="text/x-jquery-tmpl">
-        <h3><a href="${book_page_url}"><img src="${image_icon}" />${name}</a></h3>
+        <div class="threecol">
+            <p>
+                <span>
+                    <a href="${book_page_url}">
+                        <img class="avatar" src="${image_icon}" />
+                    </a>
+                    <a href="${book_page_url}">
+                        ${name}
+                    </a>
+                </span>
+            </p>
+        </div>
     </script>
     <script id="recent-books-template" type="text/x-jquery-tmpl">
-        <li><a data-book-id="${id}" title="${title}" href="${book_url}"><img alt="${title}" src="${cover_image_url}"/></a></li>
+        <a data-book-id="${id}" title="${title}" href="${book_url}">
+            <img alt="${title}" src="${cover_image_url}"/>
+        </a>
     </script>
     <script id="book-description-template" type="text/x-jquery-tmpl">
         <h4>${title}</h4>

@@ -37,7 +37,7 @@ $(function() {
   navigation();
   var id = window.location.search == "" ? "thoughworks" : window.location.search.replace("?id=", "")
   getContacts(id, function(contacts) {
-    new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS()]).fetch_books();
+    new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS('#read'), new DOUBAN.BOOKS.RECENTBOOKS('#recent')]).fetch_books();
   });
   //setTimeout(setLayout, 1000);
 });

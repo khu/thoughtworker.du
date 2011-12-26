@@ -28,6 +28,10 @@ a:hover {
   display: none;
 }
 
+#wapper {
+  padding: 10px;
+}
+
 #banner {
   background: #fff;
   border-bottom: #ffd400 solid 5px;
@@ -58,7 +62,7 @@ a:hover {
   margin: 0 auto;
 }
 
-.books li {
+.books p {
   color: #fff;
   margin: 20px 0 0 0;
   -webkit-box-shadow: rgba(34, 25, 25, 0.398438) 0 1px 3px;
@@ -66,6 +70,13 @@ a:hover {
   box-shadow: rgba(34, 25, 25, 0.398438) 0 1px 3px;
   font-size: 12px;
   /*float: left;*/
+}
+
+#read {
+  text-align: center;
+}
+
+#read p {
   width: 250px;
   text-align: center;
   margin-right: 10px;
@@ -77,12 +88,12 @@ a:hover {
   display: block;
 }
 
-.books li img {
+.books p img {
   max-width: 210px;
   margin: 20px;
 }
 
-.books li span {
+.books p span {
   display: block;
   height: 51px;
   background: #f5f5f5;
@@ -90,17 +101,17 @@ a:hover {
   color: #111;
 }
 
-.books li span a {
+.books p span a {
   margin-right: 2px;
 }
 
-.books li span img.avatar {
+.books p span img.avatar {
   float: left;
   width: 40px;
   margin: 0 10px 8px 10px;
 }
 
-.books li .small-book {
+.books p .small-book {
   width: 80px;
   padding: 2px;
   border: 1px solid #eee;
