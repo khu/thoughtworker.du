@@ -42,5 +42,5 @@ $(function() {
   getContacts(id, function(contacts) {
     new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS()]).fetch_books();
   });
-  setTimeout(setLayout, 1000);
+  //setTimeout(setLayout, 1000);
 });

@@ -61,11 +61,12 @@ a:hover {
   background-color: #FFFFFF;
   box-shadow: rgba(34, 25, 25, 0.398438) 0 1px 3px;
   font-size: 12px;
-  float: left;
+  /*float: left;*/
   width: 250px;
   text-align: center;
   margin-right: 10px;
   margin-left: 10px;
+  display: inline-block;
 }
 
 .books .img_link {
