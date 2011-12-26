@@ -34,8 +34,7 @@ function setImageSize(imgobj, iPreImg_w, iPreImg_h) {
 
 window["DOUBAN"]["BOOKS"]["FAVBOOKS"] = function() {
   this.act_with = function(books_for_individual) {
-    var each_book = $("#fav-books-template").tmpl(books_for_individual.books)
-    var books_section = $("<ul></ul>").append(each_book)
-    $('#read').append(books_section)
+    var each_book = $("#fav-books-template").tmpl(books_for_individual.books);
+    $('#read ul').append(each_book);
   };
 }

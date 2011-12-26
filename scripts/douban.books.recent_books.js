@@ -9,6 +9,6 @@ window["DOUBAN"]["BOOKS"]["RECENTBOOKS"] = function() {
     var book_element = $("#recent-books-template").tmpl(books);
     book_info(book_element);
     var books_section = $("<ul class='recent'></ul>").append(book_element);
-    $("<p></p>").append(people_icon_section).append(books_section).appendTo("#recent")
+    $("<p></p>").append(people_icon_section).append(books_section).appendTo("#recent");
   };
 }
