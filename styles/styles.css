@@ -24,6 +24,10 @@ a:hover {
   visibility: hidden;
 }
 
+.hide {
+  display: none;
+}
+
 #banner {
   background: #fff;
   border-bottom: #ffd400 solid 5px;
@@ -110,10 +114,6 @@ a:hover {
   padding: 2px 8px;
   position: relative;
   top: 23px;
-}
-
-#recent {
-  display: none;
 }
 
 #book_description {
