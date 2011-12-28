@@ -1,17 +1,14 @@
 var navigation = function() {
-  $("#recent_tab").click(function() {
-    $("#read").hide();
-    $("#recent").show();
-    $("#nav .nav_tab").removeClass("active");
-    $(this).addClass("active");
-    return false;
-  });
+  $('.nav_tab').on('click', function() {
+    var $this = $(this);
 
-  $("#read_tab").click(function() {
-    $("#recent").hide();
-    $("#read").show();
-    $("#nav .nav_tab").removeClass("active");
-    $(this).addClass("active");
+    var contentElement = $($this.attr('href'));
+    $('.books').addClass('hide');
+    contentElement.removeClass('hide');
+
+    $('.nav_tab').removeClass('active');
+    $this.addClass('active');
+
     return false;
   });
 };
@@ -40,7 +37,7 @@ $(function() {
   navigation();
   var id = window.location.search == "" ? "thoughworks" : window.location.search.replace("?id=", "")
   getContacts(id, function(contacts) {
-    new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS(), new DOUBAN.BOOKS.RECENTBOOKS(), new DOUBAN.BOOKS.TAGS()]).fetch_books();
+    new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS('#read'), new DOUBAN.BOOKS.RECENTBOOKS('#recent'), new DOUBAN.BOOKS.TAGS()]).fetch_books();
   });
-  setTimeout(setLayout, 1000);
+  //setTimeout(setLayout, 1000);
 });
