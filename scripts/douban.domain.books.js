@@ -12,7 +12,7 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOK"] = function(contact, book) {
   this.contact.id = contact.nid;
   this.contact.name = contact.name;
   this.contact.page_url = contact.link.alternate;
-  this.contact.book_page_url = "http://book.douban.com/perple/" + contact.nid;
+  this.contact.book_page_url = "http://book.douban.com/people/" + contact.nid;
   this.contact.image_icon = contact.link.icon;
 }
 
