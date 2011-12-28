@@ -3,7 +3,7 @@ window["DOUBAN"]["BOOKS"]["RECENTBOOKS"] = function(recent_book_el) {
     if (books_for_individual.size() == 0) return;
 
     var contact = books_for_individual.get(0).contact;
-    var books = books_for_individual.slice(5);
+    var books = books_for_individual.slice(7);
 
     var people_icon_section = $("#recent-people-template").tmpl(contact);
     var book_element = $("#recent-books-template").tmpl(books);
