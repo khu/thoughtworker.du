@@ -8,6 +8,7 @@ window["DOUBAN"]["BOOKS"]["TAGS"] = function() {
                 callback:function(tagsJson) {
                     var tagObj = DOUBAN.parseTags(tagsJson);
                     var tags = new DOUBAN.BOOKS.DOMAIN.TAGS(tagObj);
+                    tags.renderToBook("#fav-" + book.id)
                     tags.renderTo("#tags", global_tags.merge(tags))
                 }
             })            

@@ -79,7 +79,7 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["TAG"] = function(link, text, vote) {
             } else {return 210}
         }
         all_tags.find(thistag.text, function(tag){
-            var tagNode = $("." + thistag.text);
+            var tagNode = $("#tags ." + thistag.text);
             tagNode.remove();
             vote = tag.vote + 1;
             $("#"+ tagSize(vote) + "-section").append("<li class='" + thistag.text + "'>" + thistag.text +"(" + vote + ")</li>")
@@ -145,6 +145,12 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["TAGS"] = function(tags) {
     this.renderTo = function(id, all_tags) {
         this.foreach(function(tag) {
             tag.renderTo($(id), all_tags)
+        })
+    }
+    
+    this.renderToBook = function(id) {
+        this.foreach(function(tag){
+            $(id).addClass(tag.text)
         })
     }
 }
