@@ -28,7 +28,15 @@
         </div>
         <div id="read" class="books"></div>
         <div id="recent" class="books"></div>
-        <div id="tags"></div>
+        <div id="tags">
+			<ul id="210-section"></ul>
+			<ul id="130-section"></ul>
+			<ul id="80-section"></ul>
+			<ul id="50-section"></ul>
+			<ul id="30-section"></ul>
+			<ul id="20-section"></ul>
+			<ul id="10-section"></ul>
+		</div>
         <div id="book_description"></div>
     </div>
     <script id="fav-books-template" type="text/x-jquery-tmpl">
@@ -39,6 +47,9 @@
     </script>
     <script id="recent-books-template" type="text/x-jquery-tmpl">
         <li><a data-book-id="${id}" title="${title}" href="${book_url}"><img alt="${title}" src="${cover_image_url}"/></a></li>
+    </script>
+    <script id="tags-template" type="text/x-jquery-tmpl">
+        <li><a href="${link}">${text}</a></li>
     </script>
     <script id="book-description-template" type="text/x-jquery-tmpl">
         <h4>${title}</h4>

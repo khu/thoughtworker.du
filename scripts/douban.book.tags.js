@@ -1,4 +1,4 @@
-var allTags = new DOUBAN.BOOKS.DOMAIN.TAGS()
+var global_tags = new DOUBAN.BOOKS.DOMAIN.TAGS()
 
 window["DOUBAN"]["BOOKS"]["TAGS"] = function() {
     this.act_with = function(books_for_individual) {
@@ -7,8 +7,8 @@ window["DOUBAN"]["BOOKS"]["TAGS"] = function() {
                 id : book.id,
                 callback:function(tagsJson) {
                     var tagObj = DOUBAN.parseTags(tagsJson);
-                    var tags = new DOUBAN.BOOKS.DOMAIN.TAGS(tagObj)
-                    allTags.merge(tags).renderTo("#tags")
+                    var tags = new DOUBAN.BOOKS.DOMAIN.TAGS(tagObj);
+                    tags.renderTo("#tags", global_tags.merge(tags))
                 }
             })            
         })

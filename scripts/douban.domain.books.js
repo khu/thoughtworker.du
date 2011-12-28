@@ -47,14 +47,47 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOKS"] = function(books) {
 
 window["DOUBAN"]["BOOKS"]["DOMAIN"]["TAG"] = function(link, text, vote) {
     this.link = link;
-    this.text = text;
+    this.text = function(){
+        return text.replace(/[;@&.'/~!#]/g, '-').replace(/[()+$ ]/g, '')        
+    }()
     this.vote = vote;
     
     this.increaseVote = function() {
         this.vote++
     }
+    
+    this.renderTo = function(element, all_tags) {
+        var thistag = this;
+        var tagSize = function(accurate_size) {
+            if (accurate_size <= 10) {
+                return 10;
+            }
+            if (accurate_size <= 20) {
+                return 20
+            }
+            if (accurate_size <= 30) {
+                return 30
+            }
+            if (accurate_size <= 50) {
+                return 50
+            }
+            if (accurate_size <= 80) {
+                return 80
+            }
+            if (accurate_size <= 130) {
+                return 130
+            } else {return 210}
+        }
+        all_tags.find(thistag.text, function(tag){
+            var tagNode = $("." + thistag.text);
+            tagNode.remove();
+            vote = tag.vote + 1;
+            $("#"+ tagSize(vote) + "-section").append("<li class='" + thistag.text + "'>" + thistag.text +"(" + vote + ")</li>")
+        }, function(tag) {
+            $("#10-section").append("<li class='" + thistag.text + "," +  tagSize(thistag.vote) +"'>" + thistag.text +"(" + thistag.vote + ")</li>")            
+        })
+    }
 }
-
 
 window["DOUBAN"]["BOOKS"]["DOMAIN"]["TAGS"] = function(tags) {
     this.tags = {}
@@ -64,6 +97,14 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["TAGS"] = function(tags) {
             this.tags[tag.text].increaseVote();
         } else {
             this.tags[tag.text] = tag;
+        }
+    }
+    
+    this.find = function(text, action, exception_action) {
+        if (this.tags[text]) {
+            action(this.tags[text])
+        } else {
+            exception_action(this.tags[text])
         }
     }
     
@@ -91,8 +132,8 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["TAGS"] = function(tags) {
         var doubanTag = this;
         var isEmpty = this.is_empty();
         if (isEmpty) {
-            this.tags = tagsObj.tags
-            return this;
+            doubanTag.tags = tagsObj.tags
+            return doubanTag;
         } else {
             tagsObj.foreach(function(tag){
                 doubanTag.add(tag)
@@ -101,10 +142,9 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["TAGS"] = function(tags) {
         }
     }
     
-    this.renderTo = function(id) {
-        $(id).empty()
-        this.foreach(function(tag){
-            $(id).append($("<li>" + tag.text + "(" + tag.vote + ")</li>"))
+    this.renderTo = function(id, all_tags) {
+        this.foreach(function(tag) {
+            tag.renderTo($(id), all_tags)
         })
     }
 }
