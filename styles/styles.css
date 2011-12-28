@@ -69,7 +69,6 @@ a:hover {
   background-color: #FFFFFF;
   box-shadow: rgba(34, 25, 25, 0.398438) 0 1px 3px;
   font-size: 12px;
-  /*float: left;*/
 }
 
 #read {
@@ -79,9 +78,11 @@ a:hover {
 #read p {
   width: 250px;
   text-align: center;
-  margin-right: 10px;
-  margin-left: 10px;
-  display: inline-block;
+  float: left;
+}
+
+#read_content {
+  margin: 0 auto;
 }
 
 .books p img {

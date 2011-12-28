@@ -33,8 +33,50 @@ function setImageSize(imgobj, iPreImg_w, iPreImg_h) {
 }
 
 window["DOUBAN"]["BOOKS"]["FAVBOOKS"] = function(fav_book_el) {
+  var end_index = 0;
+  var books = [];
+  var number_per_loading = 8;
+
+  function bind_scroll_event() {
+    $(window).on('scroll', function() {
+      if (fav_book_el.is(':visible')) {
+        var $window = $(window);
+        var scroll_top = $window.scrollTop();
+        var window_height = $window.height();
+
+        var height = fav_book_el.offset().top + fav_book_el.height();
+
+        if (height - (scroll_top + window_height) < 100) {
+          load_books();
+        }
+      }
+    });
+  }
+
+  function load_books() {
+    var book_length = books.length;
+    if (end_index != book_length) {
+      var current_end_index = end_index + number_per_loading;
+      if (current_end_index > book_length) {
+        current_end_index = book_length;
+      }
+      var books_dom = $("#fav-books-template").tmpl(books.slice(end_index, current_end_index));
+      fav_book_el.append(books_dom);
+      books_dom.imagesLoaded(function() {
+        fav_book_el.masonry('appended', books_dom);
+      });
+      end_index = current_end_index;
+    }
+  }
+
   this.act_with = function(books_for_individual) {
-    var each_book = $("#fav-books-template").tmpl(books_for_individual.books);
-    $(fav_book_el).append(each_book);
+    if (books.length == 0) {
+      books = books_for_individual.books;
+      load_books();
+      bind_scroll_event();
+    }
+    else {
+      books = books.concat(books_for_individual.books);
+    }
   };
 }

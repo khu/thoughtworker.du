@@ -1,3 +1,5 @@
+var $fav_books_el;
+
 var navigation = function() {
   $('.nav_tab').on('click', function() {
     var $this = $(this);
@@ -23,21 +25,22 @@ var getContacts = function(uid, callback) {
 }
 
 var setLayout = function() {
-  var container = $('#read');
-  container.imagesLoaded(function() {
-    container.masonry({
-      itemSelector : 'li',
-      isFitWidth: true
-    });
+  $fav_books_el.masonry({
+    itemSelector: 'p',
+    isFitWidth: true,
+    columnWidth: 250,
+    gutterWidth: 10
   });
 }
 
 $(function() {
+  $fav_books_el = $('#read_content');
+
   DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
   navigation();
   var id = window.location.search == "" ? "thoughworks" : window.location.search.replace("?id=", "")
   getContacts(id, function(contacts) {
-    new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS('#read'), new DOUBAN.BOOKS.RECENTBOOKS('#recent'), new DOUBAN.BOOKS.TAGS()]).fetch_books();
+    new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS($fav_books_el), new DOUBAN.BOOKS.RECENTBOOKS('#recent'), new DOUBAN.BOOKS.TAGS()]).fetch_books();
   });
-  //setTimeout(setLayout, 1000);
+  setLayout();
 });

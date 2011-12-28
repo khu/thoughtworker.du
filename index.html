@@ -5,7 +5,6 @@
     <script type="text/javascript" src="scripts/libs/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="scripts/libs/jquery.template.js"></script>
     <script type="text/javascript" src="scripts/libs/jquery.masonry.min.js"></script>
-    <script type="text/javascript" src="http://www.douban.com/js/api.js?v=2" ></script>
     <script type="text/javascript" src="scripts/libs/douban.js" ></script>
     <script type="text/javascript" src="http://www.douban.com/js/api-parser.js?v=1"></script>
     <script type="text/javascript" src="scripts/douban.domain.books.js"></script>
@@ -28,7 +27,9 @@
             <a id="read_tab" class="nav_tab active" href="#read">Read</a>
             <a id="recent_tab" class="nav_tab" href="#recent">Recent</a>
         </div>
-        <div id="read" class="books row"></div>
+        <div id="read" class="books row">
+            <div id="read_content"></div>
+        </div>
         <div id="recent" class="books row hide"></div>
         <div id="tags">
 			<ul id="210-section"></ul>
