@@ -139,12 +139,27 @@ a:hover {
   position: fixed;
   bottom: 10px;
   right: 50px;
-  width: 40px;
-  height: 80px;
-  padding-top: 20px;
+  width: 250px;
+  padding-top: 5px;
+  height: 30px;
   box-shadow: rgba(34, 25, 25, 0.398438) 0 1px 3px;
   background-color: #FFD400;
   color: white;
+}
+
+#go_to_top ul {
+    list-style:none;
+}
+
+#go_to_top li {
+    float:left;
+    padding-bottom:5px;
+    margin-left:2px;
+}
+
+#go_to_top a {
+    float:right;
+    margin-right:5px;
 }
 
 #go_to_top:hover {

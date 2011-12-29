@@ -43,4 +43,5 @@ $(function() {
     new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS($fav_books_el), new DOUBAN.BOOKS.RECENTBOOKS('#recent'), new DOUBAN.BOOKS.TAGS()]).fetch_books();
   });
   setLayout();
+
 });
