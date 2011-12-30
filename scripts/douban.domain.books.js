@@ -148,7 +148,7 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["TAGS"] = function(tags) {
         })
     }
     
-    this.renderToBook = function(id) {
+    this.attach_to = function(id) {
         this.foreach(function(tag){
             $(id).addClass(tag.text)
         })
