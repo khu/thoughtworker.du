@@ -41,13 +41,14 @@ $(function() {
   DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
   navigation();
   var id = window.location.search == "" ? "thoughworks" : window.location.search.replace("?id=", "")
+  var tags = new DOUBAN.BOOKS.TAGS()
   getContacts(id, function(contacts) {
-    new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS($fav_books_el), new DOUBAN.BOOKS.RECENTBOOKS('#recent'), new DOUBAN.BOOKS.TAGS()]).fetch_books();
+    new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS($fav_books_el), new DOUBAN.BOOKS.RECENTBOOKS('#recent'), tags]).fetch_books();
   });
   setLayout();
 
 
   $(".action").on("click", function(){
-      renderBooks(selectedTag(["#tech", "#mgt", "#misc"]), $("#read").find(".masonry-brick"))
+      tags.render_books(tags.selected_tag(["#tech", "#mgt", "#misc"]), $("#read").find("p"))
   })
 });
