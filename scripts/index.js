@@ -48,7 +48,7 @@ $(function() {
   setLayout();
 
 
-  $(".action").on("click", function(){
+  $("#tags input").on("click", function(){
       tags.render_books(tags.selected_tag(["#tech", "#mgt", "#misc"]), $("#read").find("p"))
   })
 });
