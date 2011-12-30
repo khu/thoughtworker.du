@@ -61,6 +61,7 @@ window["DOUBAN"]["BOOKS"]["FAVBOOKS"] = function(fav_book_el) {
         current_end_index = book_length;
       }
       var books_dom = $("#fav-books-template").tmpl(books.slice(end_index, current_end_index));
+
       fav_book_el.append(books_dom);
       books_dom.imagesLoaded(function() {
         fav_book_el.masonry('appended', books_dom);

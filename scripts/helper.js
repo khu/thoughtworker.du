@@ -1,10 +1,14 @@
 var renderBooks = function(selectedTag, books) {
     for(var i = 0; i < books.length;i++) {
         var bookObj = $(books[i])
-        if(!bookObj.is(selectedTag)) {
-            bookObj.css({visibility: "hidden"})
+        if(bookObj.is(selectedTag)) {
+            bookObj.show()
         } else {
-            bookObj.css({visibility: "visible"})
+            if ($("#misc").is(":checked")) {
+                bookObj.show()
+            } else {
+                bookObj.hide()                
+            }
         }
     }    
 }

@@ -15,6 +15,7 @@
     <script type="text/javascript" src="scripts/douban.books.info.js"></script>
     <script type="text/javascript" src="scripts/douban.book.tags.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
+    <script type="text/javascript" src="scripts/helper.js"></script>
 
     <link href="styles/1140.css" rel="stylesheet" type="text/css" />
     <link href="styles/ie.css" rel="stylesheet" type="text/css" />
@@ -37,23 +38,23 @@
         <div id="go_to_top">
 	        <ul id="tags">
 				<li>
-					<input checked id="tech" type="checkbox" class="计算机,软件开发,软件工程,编程,敏捷开发,项目管理,IT,Programming,design,精益,敏捷,互联网,软件,计算机科学,设计模式,agile"></input>
+					<input class="action" checked id="tech" type="checkbox" class="计算机,软件开发,软件工程,编程,敏捷开发,项目管理,IT,Programming,design,精益,敏捷,互联网,软件,计算机科学,设计模式,agile"></input>
 					<label for="tech">技术</label>
 				</li>
 				<li>
-					<input checked d="mgt" type="checkbox" class="管理,项目管理,管理学,个人管理"></input>
+					<input class="action" checked d="mgt" type="checkbox" class="管理,项目管理,管理学,个人管理"></input>
 					<label for="mgt">管理</label>
 				</li>
 				<li class="">
-					<input checked id="misc" type="checkbox"></input>
-					<label for="misc">其他</label>
-				</li>
+                        <input class="action" id="misc" type="checkbox"></input>
+                        <label for="misc">其它</label>
+                </li>
 			</ul>
             <a  href="#">回顶部</a>
         </div>
     </div>
     <script id="fav-books-template" type="text/x-jquery-tmpl">
-        <p id="fav-${id}">
+        <p id="fav-${id}" style="display:none">
             <a  target="_blank" title="${title}" href="${book_url}">
                 <img alt="${title}" src="${image_url}"/>
             </a>

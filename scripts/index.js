@@ -45,7 +45,9 @@ $(function() {
     new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS($fav_books_el), new DOUBAN.BOOKS.RECENTBOOKS('#recent'), new DOUBAN.BOOKS.TAGS()]).fetch_books();
   });
   setLayout();
-  $("#tech").on("click", function(){
-      renderBooks(selectedTag(["#tech", "#mgt", "#misc"]), $(".masonry-brick"))
+
+
+  $(".action").on("click", function(){
+      renderBooks(selectedTag(["#tech", "#mgt", "#misc"]), $("#read").find(".masonry-brick"))
   })
 });

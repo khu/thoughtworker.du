@@ -1,7 +1,7 @@
 
 window["DOUBAN"]["BOOKS"]["TAGS"] = function() {
   this.act_with = function(books_for_individual) {
-    var selected =  selectedTag(["#tech", "#mgt", "#misc"])
+    var selected =  selectedTag(["#tech", "#mgt"])
     books_for_individual.foreach(function(book) {
       DOUBAN.getBookTags({
         id : book.id,
@@ -9,7 +9,7 @@ window["DOUBAN"]["BOOKS"]["TAGS"] = function() {
           var tagObj = DOUBAN.parseTags(tagsJson);
           var tags = new DOUBAN.BOOKS.DOMAIN.TAGS(tagObj);
           tags.attach_to("#fav-" + book.id);
-          renderBooks(selected, ["#fav-" + book.id])
+          renderBooks(selected, $("#fav-" + book.id]))
         }
       })
     })
