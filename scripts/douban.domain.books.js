@@ -1,19 +1,76 @@
 if (!window["DOUBAN"]["BOOKS"]) window["DOUBAN"]["BOOKS"] = {}
 window["DOUBAN"]["BOOKS"]["DOMAIN"] = {}
 
+window["DOUBAN"]["BOOKS"]["DOMAIN"]["CONTACT"] = function(contact) {
+    this.id = contact.nid;
+    this.name = contact.name;
+    this.page_url = contact.link.alternate;
+    this.book_page_url = "http://book.douban.com/people/" + contact.nid;
+    this.image_icon = contact.link.icon;
+    this._loaded_books = 1;
+    this._all_books_loaded = false;
+    this.load = function(amount) {
+        if (amount == 0) {
+            this._all_books_loaded = true;
+        } else {
+            this._all_books_loaded = false;
+            this._loaded_books += amount 
+        }
+    }
+    this.loaded_books = function() {
+        return this._loaded_books;
+    }
+    this.are_all_books_loaded = function() {
+        return this._all_books_loaded;
+    }
+}
+
+window["DOUBAN"]["BOOKS"]["DOMAIN"]["CONTACTS"] = function(contacts) {
+    this.contacts = []
+    this._current_index = 0;
+    
+    this.add = function(contact) {
+        this.contacts.push(contact)
+    }
+
+    if(contacts) {
+      for (var i =0; i < contacts.length; i++) {
+          this.add(new DOUBAN.BOOKS.DOMAIN.CONTACT(contacts[i]))
+      }
+    }
+
+    this.size = function() {
+        return this.contacts.length
+    }
+
+    this.get = function(index) {
+        return this.contacts[index]
+    }
+    
+    this.current = function() {
+        var nullObj = new DOUBAN.BOOKS.DOMAIN.CONTACT({
+            nid : 0,
+            name : "",
+            link : {alternate: "", icon:""},
+        });
+        nullObj.load(0);
+        
+        if (this.contacts.length == 0) {
+            return nullObj;
+        };
+        this._current_index = this.contacts[this._current_index].are_all_books_loaded() ? this._current_index + 1 : this._current_index;
+        return (this._current_index >= this.contacts.length ?  nullObj : this.contacts[this._current_index])
+    }
+}
+
+
 window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOK"] = function(contact, book) {
   this.id = book.nid
   this.image_url = book.link.image.replace("spic", "lpic");
   this.book_url  = book.link.alternate;
   this.cover_image_url = book.link.image;
   this.title = book.title;
-
-  this.contact = {};
-  this.contact.id = contact.nid;
-  this.contact.name = contact.name;
-  this.contact.page_url = contact.link.alternate;
-  this.contact.book_page_url = "http://book.douban.com/people/" + contact.nid;
-  this.contact.image_icon = contact.link.icon;
+  this.contact = contact;
 }
 
 window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOKS"] = function(books) {
@@ -41,6 +98,15 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOKS"] = function(books) {
       for(var i = 0; i < this.books.length;i++) {
           callback(this.books[i])
       }
+  }
+  this.unique_books = function() {
+    var books = [];
+    this.foreach(function(book) {
+        if($("#fav-" + book.id).length == 0){
+            books.push(book)
+        }
+    })
+    return books;
   }
 }
 
@@ -150,6 +216,7 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["TAGS"] = function(tags) {
     
     this.attach_to = function(id) {
         this.foreach(function(tag){
+            console.log("trying to attach the tag [" + tag.text + "] to [" + id + "]")
             $(id).addClass(tag.text)
         })
     }

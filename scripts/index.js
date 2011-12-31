@@ -43,7 +43,8 @@ $(function() {
   var id = window.location.search == "" ? "thoughworks" : window.location.search.replace("?id=", "")
   var tags = new DOUBAN.BOOKS.TAGS()
   getContacts(id, function(contacts) {
-    new DOUBAN.BOOKS.FETCHER(contacts, [new DOUBAN.BOOKS.FAVBOOKS($fav_books_el), new DOUBAN.BOOKS.RECENTBOOKS('#recent'), tags]).fetch_books();
+    var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts)
+    new DOUBAN.BOOKS.FETCHER($fav_books_el, contactsObj, [new DOUBAN.BOOKS.FAVBOOKS($fav_books_el), new DOUBAN.BOOKS.RECENTBOOKS('#recent'), tags]).fetch_books();
   });
   setLayout();
 

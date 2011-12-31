@@ -44,6 +44,7 @@ describe("display the books based on tech or management tag.", function() {
         $("html").append("<div id='test-dom'></div>");
         var dom = '<input checked id="tech" type="checkbox" class="computer,agile"></input>'
                 + '<input checked id="mgt" type="checkbox" class="projectmanagement, management, personalmanagement"></input>'
+                + '<input id="misc" type="checkbox" class=""></input>'
                 + '<p id="fav-10102" class="masonry-brick"></p>'
                 + '<p id="fav-10103" class="masonry-brick"></p>';
 		$('#test-dom').append(dom);
@@ -55,15 +56,17 @@ describe("display the books based on tech or management tag.", function() {
     it("should append the invisible book when all matched tag is unchecked.", function(){
           $("#fav-10102").attr("class", "computer")
           uncheck("tech")
-          tagsObj.render_books(tagsObj.selected_tag(["#tech", "#mgt"]), ["#fav-10102"]);
-          expect($("#fav-10102").is(":visible")).toEqual(false);
+          uncheck("misc")
+          check("mgt")
+          tagsObj.render_books(tagsObj.selected_tag(["#tech", "#mgt", "#misc"]), ["#fav-10102"]);
+          expect($("#fav-10102").css("visibility")).toEqual("hidden");
       })
       
       it("should append the visible book when all matched tag is checked.", function(){
           $("#fav-10102").attr("class", "computer")
           check("tech")
           tagsObj.render_books(tagsObj.selected_tag(["#tech", "#mgt"]), ["#fav-10102"]);
-          expect($("#fav-10102").is(":visible")).toEqual(true);
+          expect($("#fav-10102").css("visibility")).toEqual("visible");
       })
     
     it("should append the visible book when any matched tag is checked.", function(){
@@ -71,7 +74,7 @@ describe("display the books based on tech or management tag.", function() {
         uncheck("tech")
         check("mgt")
         tagsObj.render_books(tagsObj.selected_tag(["#tech", "#mgt"]), ["#fav-10102"]);
-        expect($("#fav-10102").is(":visible")).toEqual(true);
+        expect($("#fav-10102").css("visibility")).toEqual("visible");
     })
     it("should handle the mutiple element.", function(){
         $("#fav-10102").attr("class", "computer agile-programming projectmanagement")
@@ -79,8 +82,8 @@ describe("display the books based on tech or management tag.", function() {
         check("tech")
         uncheck("mgt")
         tagsObj.render_books(tagsObj.selected_tag(["#tech", "#mgt"]), $(".masonry-brick"));
-        expect($("#fav-10102").is(":visible")).toEqual(true);
-        expect($("#fav-10103").is(":visible")).toEqual(true);
+        expect($("#fav-10102").css("visibility")).toEqual("visible");
+        expect($("#fav-10103").css("visibility")).toEqual("visible");
     })
 })
 
@@ -104,20 +107,20 @@ describe("display the books based on misc tag.", function() {
           uncheck("tech")
           uncheck("mgt")
           tagsObj.render_books(tagsObj.selected_tag(["#tech", "#mgt", "#misc"]), ["#fav-10102"]);
-          expect($("#fav-10102").is(":visible")).toEqual(false);
+          expect($("#fav-10102").css("visibility")).toEqual("hidden");
     })
     
     it("should append the invisible when the book is neither tech or mgt.", function(){
           $("#fav-10102").attr("class", "game")
           tagsObj.render_books(tagsObj.selected_tag(["#tech", "#mgt", "#misc"]), ["#fav-10102"]);
-          expect($("#fav-10102").is(":visible")).toEqual(false);
+          expect($("#fav-10102").css("visibility")).toEqual("hidden");
     })
     
     it("should append the visible when the book is neither tech or mgt but misc is checked.", function(){
           $("#fav-10102").attr("class", "game")
           check("misc")
           tagsObj.render_books(tagsObj.selected_tag(["#tech", "#mgt", "#misc"]), ["#fav-10102"]);
-          expect($("#fav-10102").is(":visible")).toEqual(true);
+          expect($("#fav-10103").css("visibility")).toEqual("visible");
     })
     
     it("should append visible when any tag fit into misc", function(){
@@ -125,13 +128,13 @@ describe("display the books based on misc tag.", function() {
         check("misc")
         uncheck("tech")
         tagsObj.render_books(tagsObj.selected_tag(["#tech", "#mgt", "#misc"]), ["#fav-10102"]);
-        expect($("#fav-10102").is(":visible")).toEqual(true);
+        expect($("#fav-10103").css("visibility")).toEqual("visible");
     })
     
     it("should be visible if there is no tag", function(){
           $("#fav-10102").attr("class", "")
           check("misc")
           tagsObj.render_books(tagsObj.selected_tag(["#tech", "#mgt", "#misc"]), ["#fav-10102"]);
-          expect($("#fav-10102").is(":visible")).toEqual(true);
+          expect($("#fav-10103").css("visibility")).toEqual("visible");
     })
 })

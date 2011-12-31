@@ -1,10 +1,10 @@
-
+var called = 0
 window["DOUBAN"]["BOOKS"]["TAGS"] = function() {
     this.render_books = function(selectedTag, books) {
         for(var i = 0; i < books.length;i++) {
             var bookObj = $(books[i])
             if(bookObj.is(selectedTag)) {
-                    bookObj.css("visibility", "visible");
+                bookObj.css("visibility", "visible");
             } else {
                 if ($("#misc").is(":checked")) {
                     bookObj.css("visibility", "visible");
@@ -36,6 +36,7 @@ window["DOUBAN"]["BOOKS"]["TAGS"] = function() {
         var selected = this.selected_tag(["#tech", "#mgt", "#misc"]);
         var thisobject = this
         books_for_individual.foreach(function(book) {
+          console.log("going to load the tags for book [" + book.id + "] " + called);
           DOUBAN.getBookTags({
             id : book.id,
             callback:function(tagsJson) {
