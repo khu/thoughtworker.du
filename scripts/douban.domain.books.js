@@ -47,6 +47,12 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["CONTACTS"] = function(contacts) {
         return this.contacts[index]
     }
     
+    this.foreach = function(callback) {
+         for(var i = 0; i < this.contacts.length;i++) {
+             callback(this.contacts[i])
+         }
+     }
+    
     this.current = function() {
         var nullObj = new DOUBAN.BOOKS.DOMAIN.CONTACT({
             nid : 0,
