@@ -5,12 +5,12 @@ window["DOUBAN"]["BOOKS"]["TAGS"] = function() {
         for(var i = 0; i < books.length;i++) {
             var bookObj = $(books[i])
             if(bookObj.is(selectedTag)) {
-                bookObj.css("visibility", "visible");
+                bookObj.show()
             } else {
                 if ($("#misc").is(":checked") && !this.is_tech_or_management(bookObj)) {
-                    bookObj.css("visibility", "visible");
+                    bookObj.show()
                 } else {
-                    bookObj.css("visibility", "hidden");                    
+                    bookObj.hide()
                 }
             }
         }

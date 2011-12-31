@@ -5,6 +5,12 @@ function check(id) {
 function uncheck(id) {
     $("#"+id).removeAttr("checked")
 }
+
+
+function is_visible(id) {
+    return $("#" + id).is(":visible")    
+}
+
 var tagsObj = new DOUBAN.BOOKS.TAGS()
 
 describe('be able to convert the multiple checkbox to sinle css class.', function () {
@@ -59,14 +65,14 @@ describe("display the books based on tech or management tag.", function() {
           uncheck("misc")
           check("mgt")
           tagsObj.render_books(["#fav-10102"]);
-          expect($("#fav-10102").css("visibility")).toEqual("hidden");
+          expect(is_visible("fav-10102")).toEqual(false);
       })
       
       it("should append the visible book when all matched tag is checked.", function(){
           $("#fav-10102").attr("class", "computer")
           check("tech")
           tagsObj.render_books(["#fav-10102"]);
-          expect($("#fav-10102").css("visibility")).toEqual("visible");
+          expect(is_visible("fav-10102")).toEqual(true);
       })
     
     it("should append the visible book when any matched tag is checked.", function(){
@@ -74,7 +80,7 @@ describe("display the books based on tech or management tag.", function() {
         uncheck("tech")
         check("mgt")
         tagsObj.render_books(["#fav-10102"]);
-        expect($("#fav-10102").css("visibility")).toEqual("visible");
+        expect(is_visible("fav-10102")).toEqual(true);
     })
     it("should handle the mutiple element.", function(){
         $("#fav-10102").attr("class", "computer agile-programming projectmanagement")
@@ -82,8 +88,8 @@ describe("display the books based on tech or management tag.", function() {
         check("tech")
         uncheck("mgt")
         tagsObj.render_books($(".masonry-brick"));
-        expect($("#fav-10102").css("visibility")).toEqual("visible");
-        expect($("#fav-10103").css("visibility")).toEqual("visible");
+        expect(is_visible("fav-10102")).toEqual(true);
+        expect(is_visible("fav-10103")).toEqual(true);
     })
 })
 
@@ -108,20 +114,20 @@ describe("display the books based on misc tag.", function() {
              uncheck("tech")
              uncheck("mgt")
              tagsObj.render_books(["#fav-10102"]);
-             expect($("#fav-10102").css("visibility")).toEqual("hidden");
+             expect(is_visible("fav-10102")).toEqual(false);
        })
        
        it("should append the invisible when the book is neither tech or mgt.", function(){
              $("#fav-10102").attr("class", "game")
              tagsObj.render_books(["#fav-10102"]);
-             expect($("#fav-10102").css("visibility")).toEqual("hidden");
+             expect(is_visible("fav-10102")).toEqual(false);
        })
        
        it("should append the visible when the book is neither tech or mgt but misc is checked.", function(){
              $("#fav-10102").attr("class", "game")
              check("misc")
              tagsObj.render_books(["#fav-10102"]);
-             expect($("#fav-10103").css("visibility")).toEqual("visible");
+             expect(is_visible("fav-10103")).toEqual(true);
        })
        
        it("should append visible when any tag fit into misc", function(){
@@ -129,14 +135,14 @@ describe("display the books based on misc tag.", function() {
            check("misc")
            uncheck("tech")
            tagsObj.render_books(["#fav-10102"]);
-           expect($("#fav-10103").css("visibility")).toEqual("visible");
+           expect(is_visible("fav-10103")).toEqual(true);
        })
        
        it("should be visible if there is no tag except misc", function(){
              $("#fav-10102").attr("class", "")
              check("misc")
              tagsObj.render_books(["#fav-10102"]);
-             expect($("#fav-10103").css("visibility")).toEqual("visible");
+             expect(is_visible("fav-10103")).toEqual(true);
        })
     
     it("should hide mgt and tech books when only misc check", function(){
@@ -147,9 +153,9 @@ describe("display the books based on misc tag.", function() {
           uncheck("tech")
           uncheck("mgt")
           tagsObj.render_books(["#fav-10102", "#fav-10103", "#fav-10104"]);
-          expect($("#fav-10102").css("visibility")).toEqual("hidden");
-          expect($("#fav-10103").css("visibility")).toEqual("hidden");
-          expect($("#fav-10104").css("visibility")).toEqual("visible");
+          expect(is_visible("fav-10102")).toEqual(false);
+          expect(is_visible("fav-10103")).toEqual(false);
+          expect(is_visible("fav-10104")).toEqual(true);
     })  
 })
 
@@ -171,7 +177,7 @@ describe("functional tests.", function() {
         uncheck("tech")
         uncheck("mgt")
         tagsObj.render_books(["#fav-10102"]);
-        expect($("#fav-10102").css("visibility")).toEqual("hidden");       
+        expect(is_visible("fav-10102")).toEqual(false);
     })
     
     it("should show this management book from druker", function() {
@@ -180,7 +186,7 @@ describe("functional tests.", function() {
         uncheck("tech")
         check("mgt")
         tagsObj.render_books(["#fav-10102"]);
-        expect($("#fav-10102").css("visibility")).toEqual("visible");       
+        expect(is_visible("fav-10102")).toEqual(true);
     })
 })
 
