@@ -1,8 +1,5 @@
 window["DOUBAN"]["BOOKS"]["FETCHER"] = function(fav_books_el, contacts, douban_books_callback) {
   this.contacts = contacts;
-
-  var end_index = 0;
-  var books = [];
   var number_per_loading = 8;
   
   
@@ -10,26 +7,18 @@ window["DOUBAN"]["BOOKS"]["FETCHER"] = function(fav_books_el, contacts, douban_b
       var fetcher = this
       $(window).on('scroll', function() {
         if (fav_books_el.is(':visible')) {
-          var $window = $(window);
-          var scroll_top = $window.scrollTop();
-          var window_height = $window.height();
-
-          var height = fav_books_el.offset().top + fav_books_el.height();
-
-          if (height - (scroll_top + window_height) < 100) {
-            fetcher.fetch_books_for(fetcher.contacts.current());
-          }
+            var current_contract = fetcher.contacts.current()
+            fetcher.fetch_books_for(current_contract);
+            if (current_contract.are_all_books_loaded()) {
+                fetcher.fetch_books_for(fetcher.contacts.current());
+            }
         }
       });
     }
 
   this.fetch_books = function() {
-    if (books.length == 0) {
-        this.fetch_books_for(this.contacts.current());
-        this.bind_scroll_event();
-     } else {
-       books = books.concat(books_for_individual.books);
-     }
+    this.fetch_books_for(this.contacts.current());
+    this.bind_scroll_event();
   };
   this._parse = function(contact, book) {
     var book = DOUBAN.parseSubject(book['db:subject']);
