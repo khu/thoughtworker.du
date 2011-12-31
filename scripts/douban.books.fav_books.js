@@ -36,8 +36,10 @@ window["DOUBAN"]["BOOKS"]["FAVBOOKS"] = function(fav_book_el) {
   this.act_with = function(books_for_individual) {
       var books_dom = $("#fav-books-template").tmpl(books_for_individual.unique_books());
       fav_book_el.append(books_dom);
+      books_dom.css("visibility", "hidden")
       books_dom.imagesLoaded(function() {
         fav_book_el.masonry('appended', books_dom);
+        books_dom.css("visibility", "visible")
       });
   };
 }
