@@ -7,8 +7,15 @@ window["DOUBAN"]["BOOKS"]["RECENTBOOKS"] = function(recent_book_el) {
 
     var people_icon_section = $("#recent-people-template").tmpl(contact);
     var book_element = $("#recent-books-template").tmpl(books);
+    book_element.fancybox({
+        onComplete : function(o){
+          var hidden_link = $(o).next();
+          var href = hidden_link.attr("href");
+          var text = hidden_link.text()
+          $("#fancybox-title-float-main").html("<a href='" + href + "' style='text-decoration:underline'>" + text + "</a>")
+        }
+    });
     book_element = $('<p></p>').append(book_element);
-    book_info(book_element);
     var books_section = $('<div class="ninecol last"></div>').append(book_element);
     $(recent_book_el).append(people_icon_section).append(books_section);
   };
