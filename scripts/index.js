@@ -18,6 +18,7 @@ var navigation = function() {
 var getContacts = function(uid, callback) {
   DOUBAN.getUserContacts({
     uid :uid,
+    maxresults: 50,
     callback :function(users) {
       callback(DOUBAN.parseUsers(users).entries);
     }
