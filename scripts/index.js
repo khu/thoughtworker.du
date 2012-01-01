@@ -40,7 +40,7 @@ $(function() {
 
   DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
   navigation();
-  var id = window.location.search == "" ? "thoughworks" : window.location.search.replace("?id=", "")
+  var id = window.location.search == "" ? "thoughtworks" : window.location.search.replace("?id=", "")
   var tags = new DOUBAN.BOOKS.TAGS()
   getContacts(id, function(contacts) {
     var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts)
