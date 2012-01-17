@@ -34,8 +34,6 @@ var setLayout = function() {
   });
 }
 
-
-
 $(function() {
   $fav_books_el = $('#read_content');
 
@@ -47,11 +45,13 @@ $(function() {
     var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
     new DOUBAN.BOOKS.CONTINUNOUSFETCHER($fav_books_el, contactsObj, [new DOUBAN.BOOKS.FAVBOOKS($fav_books_el), tags]).fetch_books();
   });
-  
+
   getContacts(id, function(contacts) {
     var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
-    new DOUBAN.BOOKS.ONETIMEFETCHER($fav_books_el, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS('#recent')]).fetch_books();
+    new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS('#recent')]).fetch_books();
   });
+
+  initializeAbout(['3561405', 'zation'], '#about');
   
   setLayout();
 
