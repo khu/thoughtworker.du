@@ -41,21 +41,21 @@ $(function() {
 
   DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
   navigation();
-  var id = window.location.search == "" ? "thoughtworks" : window.location.search.replace("?id=", "")
-  var tags = new DOUBAN.BOOKS.TAGS()
+  var id = window.location.search == "" ? "thoughtworks" : window.location.search.replace("?id=", "");
+  var tags = new DOUBAN.BOOKS.TAGS();
   getContacts(id, function(contacts) {
-    var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts)
+    var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
     new DOUBAN.BOOKS.CONTINUNOUSFETCHER($fav_books_el, contactsObj, [new DOUBAN.BOOKS.FAVBOOKS($fav_books_el), tags]).fetch_books();
   });
   
   getContacts(id, function(contacts) {
-    var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts)
+    var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
     new DOUBAN.BOOKS.ONETIMEFETCHER($fav_books_el, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS('#recent')]).fetch_books();
   });
   
   setLayout();
 
   $("#tags input").on("click", function(){
-      tags.render_books($("#read").find("p"))
-  })
+      tags.render_books($("#read").find("p"));
+  });
 });
