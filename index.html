@@ -16,6 +16,7 @@
     <script type="text/javascript" src="scripts/douban.books.fetcher.js"></script>
 
     <script type="text/javascript" src="scripts/douban.book.tags.js"></script>
+    <script type="text/javascript" src="scripts/about.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
 
     <link href="styles/1140.css" rel="stylesheet" type="text/css" />
@@ -54,9 +55,7 @@
 	        </div>
         </div>
         <div id="recent" class="books row hide"></div>
-        <div id="about" class="books row hide">
-
-        </div>
+        <div id="about" class="books row hide"></div>
 
         <div id="book_description"></div>
 
@@ -87,6 +86,21 @@
 			<img class="small-book" alt="${title}" src="${cover_image_url}"/>
         </a>
 		<a class="douban_book" href="${book_url}" style="display:none">${title}</a>
+    </script>
+    <script id="about-template" type="text/x-jquery-tmpl">
+        <div class="threecol">
+            <p>
+                <span>
+                    <a target="_blank" href="${book_page_url}">
+                        <img class="avatar" src="${image_icon}" />
+                    </a>
+                    <a target="_blank" href="${book_page_url}">
+                        ${name}
+                    </a>
+                    <label>${description}</label>
+                </span>
+            </p>
+        </div>
     </script>
     <script id="tags-template" type="text/x-jquery-tmpl">
         <li><a href="${link}">${text}</a></li>
