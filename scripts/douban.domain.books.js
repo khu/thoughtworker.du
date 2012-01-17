@@ -4,6 +4,7 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"] = {}
 window["DOUBAN"]["BOOKS"]["DOMAIN"]["CONTACT"] = function(contact) {
     this.id = contact.nid;
     this.name = contact.name;
+    this.description = contact.content;
     this.page_url = contact.link.alternate;
     this.book_page_url = "http://book.douban.com/people/" + contact.nid;
     this.image_icon = contact.link.icon;
