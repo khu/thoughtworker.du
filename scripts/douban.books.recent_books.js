@@ -19,4 +19,4 @@ window["DOUBAN"]["BOOKS"]["RECENTBOOKS"] = function(recent_book_el) {
     var books_section = $('<div class="ninecol last"></div>').append(book_element);
     $(recent_book_el).append(people_icon_section).append(books_section);
   };
-}
+};
