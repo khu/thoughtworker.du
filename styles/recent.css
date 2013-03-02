@@ -1,0 +1,54 @@
+#recent .recent-book {
+  float: left;
+  width: 210px;
+  height: 430px;
+  box-shadow: 0 0 3px #d0d0d0;
+  margin: 0 30px 35px 0;
+}
+
+#recent .recent-book .book {
+  background: white;
+  height: 320px;
+  padding: 15px 15px 15px 15px;
+}
+
+#recent .recent-book .book .book-image {
+  width: 180px;
+  height: 280px;
+}
+
+#recent .recent-book .book .book-title {
+  margin: 5px 0;
+}
+
+#recent .recent-book .people {
+  background: #f2f2f2;
+  height: 50px;
+  padding: 15px 15px 15px 15px;
+}
+
+#recent .recent-book .people .people-avatar{
+  height: 50px;
+  float: left;
+  margin-right: 5px;
+}
+
+
+#recent .recent-book .people .people-name{
+  line-height: 28px;
+}
+
+#recent .recent-book .people .people-name span{
+  display: block;
+  color: #282828;
+  font-size: 14px;
+}
+
+#recent .recent-book .people .people-name .update-time{
+  font-size: 12px;
+  color: #c2c2c2;
+}
+
+#recent .recent-book a {
+  display: block;
+}

@@ -22,6 +22,7 @@
   <link href="styles/ie.css" rel="stylesheet" type="text/css" />
   <link href="styles/font-awesome.css" rel="stylesheet" type="text/css" />
   <link href="styles/base.css" rel="stylesheet" type="text/css" />
+  <link href="styles/recent.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
   <div class="container">
@@ -53,44 +54,30 @@
         </li>
       </ul>
     </section>
-    <section class="main-content">
+    <section class="main-content clearfix">
       <div id="recent" class="books row"></div>
     </section>
   </div>
   <script id="recent-people-template" type="text/x-jquery-tmpl">
-    <div class="threecol">
-      <p>
-        <span>
-            <a target="_blank" href="${book_page_url}">
-              <img class="avatar" src="${image_icon}" />
-            </a>
-            <a target="_blank" href="${book_page_url}">
-              ${name}
-            </a>
-        </span>
-      </p>
+    <div class="people clearfix">
+      <div class="people-avatar">
+        <img class="avatar" src="${image_icon}" />
+      </div>
+      <div class="people-name">
+        <span>${name}</span>
+        <span class="update-time">5分钟前</span>
+      </div>
+
     </div>
   </script>
-  <script id="recent-books-template" type="text/x-jquery-tmpl">
-    <a target="_blank" data-book-id="${id}" title="${title}" href="${image_url}">
-      <img class="small-book" alt="${title}" src="${cover_image_url}"/>
-    </a>
-    <a class="douban_book" href="${book_url}" style="display:none">${title}</a>
-  </script>
-  <script id="about-template" type="text/x-jquery-tmpl">
-    <div class="threecol">
-      <p>
-                <span>
-                    <a target="_blank" href="${book_page_url}">
-                      <img class="avatar" src="${image_icon}" />
-                    </a>
-                    <a target="_blank" href="${book_page_url}">
-                      ${name}
-                    </a>
-                    <label>${description}</label>
-                </span>
-      </p>
+  <script id="recent-book-template" type="text/x-jquery-tmpl">
+    <div class="book">
+      <a target="_blank" data-book-id="${id}" title="${title}" href="${image_url}">
+        <img class="book-image" alt="${title}" src="${image_url}"/>
+      </a>
+      <a class="book-title" href="${book_url}">${title}</a>
     </div>
   </script>
+
 </body>
 </html>

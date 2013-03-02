@@ -13,7 +13,8 @@ $(function () {
     var id = window.location.search == "" ? "thoughtworks" : window.location.search.replace("?id=", "");
     getContacts(id, function (contacts) {
       var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
-      new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS('#recent')]).fetch_books();
+      new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS.HOME('#recent')]).fetch_books();
     });
+
   }
 );
