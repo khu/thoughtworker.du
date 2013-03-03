@@ -77,6 +77,7 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOK"] = function(contact, book) {
   this.cover_image_url = book.link.image;
   this.title = book.title;
   this.contact = contact;
+  this.my_book_url = "book.html?personid=" + contact.id + "&bookid=" + book.nid;
 };
 
 window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOKS"] = function(books) {
