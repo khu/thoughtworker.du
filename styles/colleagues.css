@@ -1,0 +1,68 @@
+.hide {
+    display: none;
+}
+
+.books {
+    margin: 0 auto;
+}
+
+.books p {
+    color: #fff;
+    margin: 20px 0 5px 0;
+    -webkit-box-shadow: rgba(34, 25, 25, 0.398438) 0 1px 3px;
+    background-color: #FFFFFF;
+    box-shadow: rgba(34, 25, 25, 0.398438) 0 1px 3px;
+    font-size: 12px;
+}
+.books p img {
+    max-width: 210px;
+    margin: 20px;
+}
+
+.books p span {
+    display: block;
+    height: 51px;
+    background: #f5f5f5;
+    padding-top: 10px;
+    color: #111;
+}
+
+.books p span a {
+    margin-right: 2px;
+}
+
+.books p span img.avatar {
+    float: left;
+    width: 40px;
+    margin: 0 10px 8px 10px;
+}
+
+.books p .small-book {
+    width: 80px;
+    padding: 2px;
+    border: 1px solid #eee;
+    margin: 15px 0 6px 10px;
+}
+
+.colleagues_tabs {
+    height: 40px;
+}
+
+.colleague_tab {
+    font-size: 14px;
+    color: #7a8d5d;
+    float: left;
+    margin-left: 15px;
+    padding: 4px 8px;
+}
+
+.colleagues_tabs .selected{
+    background-color: #7a8d5d;
+    color: #ffffff;
+    border-radius: 3px;
+}
+
+#colleagues_books {
+    height: 900px;
+    margin: 0 auto;
+}

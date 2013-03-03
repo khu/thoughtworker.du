@@ -16,14 +16,18 @@
   <script type="text/javascript" src="scripts/douban.books.recent_books.js"></script>
   <script type="text/javascript" src="scripts/douban.books.fetcher.js"></script>
 
-  <script type="text/javascript" src="scripts/douban.book.tags.js"></script>
   <script type="text/javascript" src="scripts/header.js"></script>
   <script type="text/javascript" src="scripts/home.js"></script>
+  <script type="text/javascript" src="scripts/colleagues.js"></script>
+  <script type="text/javascript" src="scripts/douban.book.tags.js"></script>
 
+  <link href="styles/jquery.fancybox-1.3.4.css"  rel="stylesheet" type="text/css" />
+  <link href="styles/1140.css" rel="stylesheet" type="text/css" />
   <link href="styles/ie.css" rel="stylesheet" type="text/css" />
   <link href="styles/font-awesome.css" rel="stylesheet" type="text/css" />
   <link href="styles/base.css" rel="stylesheet" type="text/css" />
   <link href="styles/recent.css" rel="stylesheet" type="text/css" />
+  <link href="styles/colleagues.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
   <div class="container">
@@ -41,24 +45,46 @@
             </button>
           </form>
         </li>
-        <li class="nav home active">
-          首页
+        <li>
+          <a id="home" class="nav_tab home selected" href="#">首页</a>
         </li>
-        <li class="nav colleague">
-          同事们
+        <li>
+          <a id="colleagues" class="nav_tab colleague" href="#colleagues_container">同事们</a>
         </li>
-        <li class="nav my-books">
-          我的书
+        <li>
+          <a class="nav_tab my-books" href="#">我的书</a>
         </li>
-        <li class="nav exit">
-          退出
+        <li>
+          <a class="nav_tab exit" href="#">退出</a>
         </li>
       </ul>
-    </section>
+      </section>
     <section class="main-content clearfix">
-      <div id="recent" class="books row"></div>
+      <div id="recent" class="nav_page books row"></div>
+
+      <div id="colleagues_container" class="nav_page books row hide">
+        <div class="colleagues_tabs">
+          <ul>
+            <li>
+              <a id="all_colleagues_tab" class="colleague_tab selected" href="#">全部</a>
+            </li>
+            <li>
+              <a id="beijing_colleagues_tab" class="colleague_tab" href="#">北京分公司</a>
+            </li>
+            <li>
+              <a id="xian_colleagues_tab" class="colleague_tab" href="#">西安分公司</a>
+            </li>
+            <li>
+              <a id="chengdu_colleagues_tab" class="colleague_tab" href="#">成都分公司</a>
+            </li>
+          </ul>
+        </div>
+        <hr />
+        <div id="colleagues_books" class="books row"></div>
+      </div>
     </section>
   </div>
+
   <script id="recent-people-template" type="text/x-jquery-tmpl">
     <div class="people clearfix">
       <div class="people-avatar">
@@ -80,5 +106,25 @@
     </div>
   </script>
 
+  <script id="colleague-books-template" type="text/x-jquery-tmpl">
+      <a target="_blank" data-book-id="${id}" title="${title}" href="${image_url}">
+          <img class="small-book" alt="${title}" src="${cover_image_url}"/>
+      </a>
+      <a class="douban_book" href="${book_url}" style="display:none">${title}</a>
+  </script>
+  <script id="colleague-template" type="text/x-jquery-tmpl">
+      <div class="threecol">
+          <p>
+                <span>
+                    <a target="_blank" href="${book_page_url}">
+                        <img class="avatar" src="${image_icon}" />
+                    </a>
+                    <a target="_blank" href="${book_page_url}">
+                        ${name}
+                    </a>
+                </span>
+          </p>
+      </div>
+  </script>
 </body>
 </html>

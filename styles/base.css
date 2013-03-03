@@ -31,21 +31,30 @@ body {
   box-shadow: 0 2px 1px #828282;
 }
 
-.header li {
+.header li{
   float: left;
   margin-left: 40px;
   vertical-align: middle;
-  color: #dde1d7;
   line-height: 36px;
 }
 
-.header li.search {
-  margin-left: 20px;
+.header li a{
+    color: #dde1d7;
 }
 
 .header li.active {
   color: #fff;
   border-bottom: 2px solid #fff;
+}
+
+.header li a.selected {
+    color: #fff;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #fff;
+}
+
+.header li.search {
+  margin-left: 20px;
 }
 
 .header ul {

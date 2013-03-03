@@ -5,8 +5,8 @@ window["DOUBAN"]["BOOKS"]["RECENTBOOKS"] = function(recent_book_el) {
     var contact = books_for_individual.get(0).contact;
     var books = books_for_individual.slice(7);
 
-    var people_icon_section = $("#recent-people-template").tmpl(contact);
-    var book_element = $("#recent-books-template").tmpl(books);
+    var people_icon_section = $("#colleague-template").tmpl(contact);
+    var book_element = $("#colleague-books-template").tmpl(books);
     book_element.fancybox({
         onComplete : function(o){
           var hidden_link = $(o).next();
