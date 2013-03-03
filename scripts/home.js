@@ -15,6 +15,5 @@ $(function () {
       var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
       new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS.HOME('#recent')]).fetch_books();
     });
-
   }
 );

@@ -43,7 +43,7 @@ body {
   margin-left: 20px;
 }
 
-.header li.selected {
+.header li.active {
   color: #fff;
   border-bottom: 2px solid #fff;
 }
@@ -59,7 +59,7 @@ body {
 }
 
 .header .navigate_bar {
-  width: 960px;
+  width: 900px;
   margin: 0 auto;
 }
 
@@ -95,6 +95,11 @@ body {
   right: 1px;
   bottom: 2px;
   font-size: 14px;
+}
+
+.header .nav:hover {
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .main-content {
