@@ -34,6 +34,7 @@ $(function () {
     $("#colleagues").on("click", function () {
         $("#colleagues_container").removeClass("hide");
         getContacts(id, function (contacts) {
+            $('#colleagues_books').empty();
             var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
             new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS('#colleagues_books')]).fetch_books();
         });

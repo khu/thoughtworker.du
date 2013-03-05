@@ -53,7 +53,7 @@ window["DOUBAN"]["BOOKS"]["CONTINUNOUSFETCHER"] = function (fav_books_el, contac
 
 window["DOUBAN"]["BOOKS"]["ONETIMEFETCHER"] = function (fav_books_el, contacts, douban_books_callback) {
   this.contacts = contacts;
-  var number_per_loading = 1;
+  var number_per_loading = 3;
 
   this._parse = function (contact, book) {
     var book = DOUBAN.parseSubject(book['db:subject']);
