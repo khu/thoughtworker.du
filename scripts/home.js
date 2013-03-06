@@ -8,6 +8,13 @@ var getContacts = function (uid, callback) {
   });
 };
 
+var render_home_page = function(id) {
+    getContacts(id, function (contacts) {
+        var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
+        new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS.HOME('#recent')]).fetch_books();
+    });
+}
+
 var navigation = function() {
     $('.nav_tab').on('click', function() {
         var $this = $(this);
@@ -18,25 +25,26 @@ var navigation = function() {
     });
 };
 
-$(function () {
-    navigation();
-    DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
-    var id = window.location.search == "" ? "thoughtworks" : window.location.search.replace("?id=", "");
-    getContacts(id, function (contacts) {
-      var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
-      new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS.HOME('#recent')]).fetch_books();
-    });
-
+var nav_tab_listener = function(id) {
     $("#home").on("click", function () {
         $("#recent").removeClass("hide");
     });
 
     $("#colleagues").on("click", function () {
         $("#colleagues_container").removeClass("hide");
-        getContacts(id, function (contacts) {
-            $('#colleagues_books').empty();
-            var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
-            new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS('#colleagues_books')]).fetch_books();
-        });
+        renderContactsSectionForAll(id);
     });
+}
+
+$(function () {
+    DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
+    var id = window.location.search == "" ? "thoughtworks" : window.location.search.replace("?id=", "");
+
+    render_home_page(id);
+
+    navigation();
+    nav_tab_listener(id);
+
+    office_navigation();
+    office_listener(id);
 });
