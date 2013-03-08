@@ -1,4 +1,4 @@
-var office_navigation = function(){
+var officeNavigation = function(){
     $(".colleague_tab").on("click", function () {
         var $this = $(this);
         $('.colleague_tab').removeClass('selected');
@@ -7,15 +7,14 @@ var office_navigation = function(){
     });
 }
 
-var renderContactsSectionForAll = function(id) {
+var getContactsSectionForAll = function(id) {
     getContacts(id, function (contacts) {
         var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
-        $('#colleagues_books').empty();
-        new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS('#colleagues_books')]).fetch_books();
+        new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS('#all_colleagues_books')]).fetch_books();
     });
 }
 
-var renderContactsSectionForOffice = function(id, office) {
+var getContactsSectionForOffice = function(id, office, elements) {
     var contactsInOffice = [];
     getContacts(id, function (contacts) {
         for (var i = 0; i < contacts.length; i++) {
@@ -24,25 +23,52 @@ var renderContactsSectionForOffice = function(id, office) {
             }
         }
         var contactsObjInOffice = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contactsInOffice);
-        $('#colleagues_books').empty();
-        new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObjInOffice, [new DOUBAN.BOOKS.RECENTBOOKS('#colleagues_books')]).fetch_books();
+        new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObjInOffice, [new DOUBAN.BOOKS.RECENTBOOKS(elements)]).fetch_books();
     });
 }
 
-var office_listener = function(id) {
+var renderBooksForAllColleagues = function() {
+    $('#all_colleagues_books').removeClass('hide');
+    $('#beijing_colleagues_books').addClass('hide');
+    $('#xian_colleagues_books').addClass('hide');
+    $('#chengdu_colleagues_books').addClass('hide');
+}
+
+var renderBooksForBeijingColleagues = function() {
+    $('#beijing_colleagues_books').removeClass('hide');
+    $('#all_colleagues_books').addClass('hide');
+    $('#xian_colleagues_books').addClass('hide');
+    $('#chengdu_colleagues_books').addClass('hide');
+}
+
+var renderBooksForXianColleagues = function() {
+    $('#xian_colleagues_books').removeClass('hide');
+    $('#all_colleagues_books').addClass('hide');
+    $('#beijing_colleagues_books').addClass('hide');
+    $('#chengdu_colleagues_books').addClass('hide');
+}
+
+var renderBooksForChengduColleagues = function() {
+    $('#chengdu_colleagues_books').removeClass('hide');
+    $('#xian_colleagues_books').addClass('hide');
+    $('#all_colleagues_books').addClass('hide');
+    $('#beijing_colleagues_books').addClass('hide');
+}
+
+var officeListener = function(id) {
     $("#all_colleagues_tab").on("click", function () {
-        renderContactsSectionForAll(id);
+        renderBooksForAllColleagues();
     });
 
     $("#beijing_colleagues_tab").on("click", function () {
-        renderContactsSectionForOffice(id, "北京");
+        renderBooksForBeijingColleagues();
     });
 
     $("#xian_colleagues_tab").on("click", function () {
-        renderContactsSectionForOffice(id, "陕西西安");
+        renderBooksForXianColleagues();
     });
 
     $("#chengdu_colleagues_tab").on("click", function () {
-        renderContactsSectionForOffice(id, "四川成都");
+        renderBooksForChengduColleagues();
     });
 }

@@ -8,7 +8,7 @@ var getContacts = function (uid, callback) {
   });
 };
 
-var render_home_page = function(id) {
+var renderHomePage = function(id) {
     getContacts(id, function (contacts) {
         var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
         new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS.HOME('#recent')]).fetch_books();
@@ -25,14 +25,18 @@ var navigation = function() {
     });
 };
 
-var nav_tab_listener = function(id) {
+var navTabListener = function(id) {
     $("#home").on("click", function () {
         $("#recent").removeClass("hide");
     });
 
     $("#colleagues").on("click", function () {
         $("#colleagues_container").removeClass("hide");
-        renderContactsSectionForAll(id);
+        renderBooksForAllColleagues();
+        getContactsSectionForAll(id);
+        getContactsSectionForOffice(id, "北京", '#beijing_colleagues_books');
+        getContactsSectionForOffice(id, "陕西西安", '#xian_colleagues_books');
+        getContactsSectionForOffice(id, "四川成都", '#chengdu_colleagues_books');
     });
 }
 
@@ -40,11 +44,11 @@ $(function () {
     DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
     var id = window.location.search == "" ? "thoughtworks" : window.location.search.replace("?id=", "");
 
-    render_home_page(id);
+    renderHomePage(id);
 
     navigation();
-    nav_tab_listener(id);
+    navTabListener(id);
 
-    office_navigation();
-    office_listener(id);
+    officeNavigation();
+    officeListener(id);
 });
