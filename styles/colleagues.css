@@ -2,14 +2,11 @@
     display: none;
 }
 
-#colleagues_container {
-    margin-top: -20px;
-}
-
 .colleagues_tabs {
     height: 50px;
-    border-bottom: 1px solid;
-    margin-bottom: 40px;
+    border-bottom: 1px #ccc solid;
+    padding-bottom: 20px;
+    padding-top: 5px;
 }
 
 .colleague_tab {
@@ -17,6 +14,7 @@
     color: #7a8d5d;
     float: left;
     padding: 4px 8px;
+    margin-right: 15px;
 }
 
 .colleagues_tabs .selected {
@@ -37,7 +35,7 @@
 #colleagues_container .colleague-avatar {
     background-color: white;
     box-shadow: 0 0 3px #d0d0d0;
-    border-bottom: 1px solid;
+    border-bottom: 1px #ccc solid;
     padding-bottom: 3px;
 }
 
@@ -65,6 +63,11 @@
     font-size: 10px;
     display: inline-block;
     margin-left: -5px;
+}
+
+#colleagues_books {
+    padding-top: 40px;
+    padding-left: 17px;
 }
 
 #colleagues_container .colleagues-books {
