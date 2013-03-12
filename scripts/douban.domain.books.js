@@ -4,6 +4,11 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"] = {};
 window["DOUBAN"]["BOOKS"]["DOMAIN"]["CONTACT"] = function(contact) {
     this.id = contact.nid;
     this.name = contact.name;
+    var real_name = getRealname(contact.name);
+    this.realname = real_name;
+    if (real_name == "") {
+        this.realname = this.name;
+    }
     this.description = contact.content;
     this.page_url = contact.link.alternate;
     this.book_page_url = "http://book.douban.com/people/" + contact.nid;
