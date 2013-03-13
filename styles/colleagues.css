@@ -3,18 +3,29 @@
 }
 
 .colleagues_tabs {
-    height: 50px;
+    height: 95px;
     border-bottom: 1px #ccc solid;
-    padding-bottom: 20px;
-    padding-top: 5px;
+    padding-bottom: 18px;
+    padding-top: 3px;
 }
 
-.colleague_tab {
+.colleague-filter-tab {
+    height: 20px;
+}
+
+.colleague-filter-tab .tab {
     font-size: 14px;
     color: #7a8d5d;
     float: left;
     padding: 4px 8px;
-    margin-right: 15px;
+}
+
+.office_tab {
+    margin-right: 5px;
+}
+
+.colleague-filter-tab .initial_all_tab {
+    margin-right: 6px;
 }
 
 .colleagues_tabs .selected {
