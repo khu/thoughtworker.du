@@ -15,6 +15,7 @@
   <script type="text/javascript" src="scripts/douban.books.fav_books.js"></script>
   <script type="text/javascript" src="scripts/douban.books.recent_books.js"></script>
   <script type="text/javascript" src="scripts/douban.books.fetcher.js"></script>
+  <script type="text/javascript" src="scripts/douban.contact.mapper.js"></script>
 
   <script type="text/javascript" src="scripts/header.js"></script>
   <script type="text/javascript" src="scripts/home.js"></script>
@@ -57,30 +58,117 @@
         </li>
       </ul>
       </section>
-    <section class="main-content clearfix">
-      <div id="recent" class="nav_page books row"></div>
+    <section class="main-content">
+      <div id="recent" class="nav_page books row clearfix"></div>
 
       <div id="colleagues_container" class="nav_page books row hide">
         <div class="colleagues_tabs">
-          <ul>
-            <li>
-              <a id="all_colleagues_tab" class="colleague_tab selected" href="#">全部</a>
-            </li>
-            <li>
-              <a id="beijing_colleagues_tab" class="colleague_tab" href="#">北京分公司</a>
-            </li>
-            <li>
-              <a id="xian_colleagues_tab" class="colleague_tab" href="#">西安分公司</a>
-            </li>
-            <li>
-              <a id="chengdu_colleagues_tab" class="colleague_tab" href="#">成都分公司</a>
-            </li>
-          </ul>
+            <div class="colleague-filter-tab office_filter">
+              <ul>
+                <li>
+                  <a id="all_colleagues_tab" class="tab office_tab selected" href="#">全部</a>
+                </li>
+                <li>
+                  <a id="beijing_colleagues_tab" class="tab office_tab" href="#">北京分公司</a>
+                </li>
+                <li>
+                  <a id="xian_colleagues_tab" class="tab office_tab" href="#">西安分公司</a>
+                </li>
+                <li>
+                  <a id="chengdu_colleagues_tab" class="tab office_tab" href="#">成都分公司</a>
+                </li>
+              </ul>
+            </div>
+            <div class="colleague-filter-tab initial_filter">
+                <ul>
+                    <li>
+                        <a id="all_tab" class="tab initial_tab initial_all_tab selected" href="#">全部</a>
+                    </li>
+                    <li>
+                        <a id="A_tab" class="tab initial_tab" href="#">A</a>
+                    </li>
+                    <li>
+                        <a id="B_tab" class="tab initial_tab" href="#">B</a>
+                    </li>
+                    <li>
+                        <a id="C_tab" class="tab initial_tab" href="#">C</a>
+                    </li>
+                    <li>
+                        <a id="D_tab" class="tab initial_tab" href="#">D</a>
+                    </li>
+                    <li>
+                        <a id="E_tab" class="tab initial_tab" href="#">E</a>
+                    </li>
+                    <li>
+                        <a id="F_tab" class="tab initial_tab" href="#">F</a>
+                    </li>
+                    <li>
+                        <a id="G_tab" class="tab initial_tab" href="#">G</a>
+                    </li>
+                    <li>
+                        <a id="H_tab" class="tab initial_tab" href="#">H</a>
+                    </li>
+                    <li>
+                        <a id="I_tab" class="tab initial_tab" href="#">I</a>
+                    </li>
+                    <li>
+                        <a id="J_tab" class="tab initial_tab" href="#">J</a>
+                    </li>
+                    <li>
+                        <a id="K_tab" class="tab initial_tab" href="#">K</a>
+                    </li>
+                    <li>
+                        <a id="L_tab" class="tab initial_tab" href="#">L</a>
+                    </li>
+                    <li>
+                        <a id="M_tab" class="tab initial_tab" href="#">M</a>
+                    </li>
+                    <li>
+                        <a id="N_tab" class="tab initial_tab" href="#">N</a>
+                    </li>
+                    <li>
+                        <a id="O_tab" class="tab initial_tab" href="#">O</a>
+                    </li>
+                    <li>
+                        <a id="P_tab" class="tab initial_tab" href="#">P</a>
+                    </li>
+                    <li>
+                        <a id="Q_tab" class="tab initial_tab" href="#">Q</a>
+                    </li>
+                    <li>
+                        <a id="R_tab" class="tab initial_tab" href="#">R</a>
+                    </li>
+                    <li>
+                        <a id="S_tab" class="tab initial_tab" href="#">S</a>
+                    </li>
+                    <li>
+                        <a id="T_tab" class="tab initial_tab" href="#">T</a>
+                    </li>
+                    <li>
+                        <a id="U_tab" class="tab initial_tab" href="#">U</a>
+                    </li>
+                    <li>
+                        <a id="V_tab" class="tab initial_tab" href="#">V</a>
+                    </li>
+                    <li>
+                        <a id="W_tab" class="tab initial_tab" href="#">W</a>
+                    </li>
+                    <li>
+                        <a id="X_tab" class="tab initial_tab" href="#">X</a>
+                    </li>
+                    <li>
+                        <a id="Y_tab" class="tab initial_tab" href="#">Y</a>
+                    </li>
+                    <li>
+                        <a id="Z_tab" class="tab initial_tab" href="#">Z</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div id="all_colleagues_books" class="colleagues_books_container books row"></div>
-        <div id="beijing_colleagues_books" class="colleagues_books_container books row"></div>
-        <div id="xian_colleagues_books" class="colleagues_books_container books row"></div>
-        <div id="chengdu_colleagues_books" class="colleagues_books_container books row"></div>
+        <div id="all_colleagues_books" class="colleagues_books_container books row clearfix"></div>
+        <div id="beijing_colleagues_books" class="colleagues_books_container books row clearfix"></div>
+        <div id="xian_colleagues_books" class="colleagues_books_container books row clearfix"></div>
+        <div id="chengdu_colleagues_books" class="colleagues_books_container books row clearfix"></div>
       </div>
     </section>
   </div>
@@ -120,7 +208,7 @@
               <img class="avatar" src="${image_icon}" />
           </a>
           <a target="_blank" href="${book_page_url}">
-              <span class="name">${name}</span>
+              <span class="name">${realname}</span>
               <span class="quantity">100</span>
               <span class="unit">本</span>
           </a>
