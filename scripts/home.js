@@ -1,18 +1,17 @@
 var getContacts = function (uid, callback) {
-  DOUBAN.getUserContacts({
-    uid : uid,
-    maxresults : 50,
-    callback : function (users) {
-      callback(DOUBAN.parseUsers(users).entries);
-    }
-  });
+  callback(contact_json.entry);
+  // DOUBAN.getUserContacts({
+  //     uid : uid,
+  //     maxresults : 50,
+  //     callback : function (users) {
+  //       callback(contact_json.entry);
+  //     }
+  //   });
 };
 
 var renderHomePage = function(id) {
-    getContacts(id, function (contacts) {
-        var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
-        new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS.HOME('#recent')]).fetch_books();
-    });
+    var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(DOUBAN.parseUsers(contact_json).entries);
+    new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS.HOME('#recent')]).fetch_books();
 }
 
 var navigation = function() {
