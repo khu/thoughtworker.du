@@ -1,5 +1,5 @@
 var getContacts = function (uid, callback) {
-  callback(contact_json.entry);
+  callback(DOUBAN.parseUsers(contact_json).entries);
   // DOUBAN.getUserContacts({
   //     uid : uid,
   //     maxresults : 50,
