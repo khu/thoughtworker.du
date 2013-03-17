@@ -1,0 +1,31 @@
+#book_section {
+    float:left;
+    width:70%;
+    min-height:200px;
+}
+
+
+#ower_section {
+    float:right;    
+    width:28%;
+    height:100px;
+}
+
+dt {clear:left }
+dt, dd { float:left; }
+
+#book_description dd dt {
+    display:block;
+    margin-left:0;
+}
+
+#book_description {
+    border-right : 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+#book_content_description {
+    clear:both;
+    float:left;
+    border-right : 1px solid gray;
+}
