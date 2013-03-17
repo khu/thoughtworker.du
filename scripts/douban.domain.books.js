@@ -9,6 +9,7 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["CONTACT"] = function(contact) {
     if (real_name == "") {
         this.realname = this.name;
     }
+    this.initial = getInitial(this.realname);
     this.description = contact.content;
     this.page_url = contact.link.alternate;
     this.book_page_url = "http://book.douban.com/people/" + contact.nid;

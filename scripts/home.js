@@ -50,4 +50,7 @@ $(function () {
 
     officeNavigation();
     officeListener(id);
+
+    initialNavigation();
+    initialListener(id);
 });
