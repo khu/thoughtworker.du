@@ -96,6 +96,7 @@ var renderBooksByInitial = function (elements) {
 }
 
 var getAndRenderBooksByInitial = function (id, initial, elements) {
+    $(elements).empty();
     var contactsByInitial = [];
     getContacts(id, function (contacts) {
         var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
