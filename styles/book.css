@@ -19,7 +19,7 @@ dt, dd { float:left; }
 #book_description dd dt {
     display:block;
     margin-left:0;
-    width:50px;
+    width:60px;
 }
 
 #book_content_description {
@@ -32,4 +32,14 @@ dt, dd { float:left; }
     height:160px;
     background-image:url('../img/book.jpg');
     background-size: contain;
+}
+#owners {
+    padding-left : 0;
+}
+#owners li {
+    float : left;
+    width:48px;
+    height:48px;
+    margin-left:5px;
+    background-image:url('../img/icon.jpg');
 }
