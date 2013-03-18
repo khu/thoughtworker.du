@@ -2,30 +2,34 @@
     float:left;
     width:70%;
     min-height:200px;
+    border-right : 1px solid gray;
+    padding-left:30px;
 }
 
 
 #ower_section {
     float:right;    
-    width:28%;
-    height:100px;
+    width:25%;
 }
 
+dl {padding-top:0;margin-top:0;;}
 dt {clear:left }
 dt, dd { float:left; }
 
 #book_description dd dt {
     display:block;
     margin-left:0;
-}
-
-#book_description {
-    border-right : 1px solid gray;
-    border-bottom: 1px solid gray;
+    width:50px;
 }
 
 #book_content_description {
     clear:both;
     float:left;
-    border-right : 1px solid gray;
+    width: 100%;
+}
+.book-image {
+    width:110px;
+    height:160px;
+    background-image:url('../img/book.jpg');
+    background-size: contain;
 }
