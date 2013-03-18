@@ -42,11 +42,6 @@ body {
     color: #dde1d7;
 }
 
-.header li.active {
-  color: #fff;
-  border-bottom: 2px solid #fff;
-}
-
 .header li a.selected {
     color: #fff;
     padding-bottom: 4px;
