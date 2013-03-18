@@ -21,6 +21,29 @@ var realname_mapper = {
     "透明":"熊节",
     "以梦为马":"胡凯"
 };
+var initial_mapper = {
+    "郭晓":"G",
+    "任晓军":"",
+    "朱晓娜":"Z",
+    "何飞":"H",
+    "郑晔":"Z",
+    "文迪":"W",
+    "贾永娜":"J",
+    "金明":"J",
+    "张晓庆":"Z",
+    "肖鹏":"X",
+    "王健":"W",
+    "马博文":"M",
+    "熊子川":"X",
+    "张晓蕴":"Z",
+    "李剑":"L",
+    "陈金洲":"C",
+    "徐昊":"X",
+    "张凯峰":"Z",
+    "孙龙":"S",
+    "熊节":"X",
+    "胡凯":"H"
+};
 
 var getRealname = function (name) {
     for (i in this.realname_mapper) {
@@ -31,6 +54,15 @@ var getRealname = function (name) {
     return "";
 };
 
+
+var getInitial= function (realname) {
+    for (i in this.initial_mapper) {
+        if (i == realname) {
+            return this.initial_mapper[i];
+        }
+    }
+    return "";
+};
 
 var contact_json = { "author" : { "link" : [ { "@href" : "http://api.douban.com/people/54297336",
             "@rel" : "self"

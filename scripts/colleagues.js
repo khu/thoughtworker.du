@@ -1,20 +1,32 @@
-var officeNavigation = function(){
-    $(".colleague_tab").on("click", function () {
+var offices = ["beijing", "xian", "chengdu"];
+var initials = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+var officeNavigation = function () {
+    $(".office_tab").on("click", function () {
         var $this = $(this);
-        $('.colleague_tab').removeClass('selected');
+        $('.office_tab').removeClass('selected');
         $this.addClass('selected');
         return false;
     });
 }
 
-var getContactsSectionForAll = function(id) {
+var initialNavigation = function () {
+    $(".initial_tab").on("click", function () {
+        var $this = $(this);
+        $('.initial_tab').removeClass('selected');
+        $this.addClass('selected');
+        return false;
+    });
+}
+
+var getContactsSectionForAll = function (id) {
     getContacts(id, function (contacts) {
         var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
         new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS('#all_colleagues_books')]).fetch_books();
     });
 }
 
-var getContactsSectionForOffice = function(id, office, elements) {
+var getContactsSectionForOffice = function (id, office, elements) {
     var contactsInOffice = [];
     getContacts(id, function (contacts) {
         for (var i = 0; i < contacts.length; i++) {
@@ -27,48 +39,116 @@ var getContactsSectionForOffice = function(id, office, elements) {
     });
 }
 
-var renderBooksForAllColleagues = function() {
+var hideAllBooksElements = function () {
+    $('#all_colleagues_books').addClass('hide');
+}
+
+var showAllBooksElements = function () {
     $('#all_colleagues_books').removeClass('hide');
-    $('#beijing_colleagues_books').addClass('hide');
-    $('#xian_colleagues_books').addClass('hide');
-    $('#chengdu_colleagues_books').addClass('hide');
 }
 
-var renderBooksForBeijingColleagues = function() {
-    $('#beijing_colleagues_books').removeClass('hide');
-    $('#all_colleagues_books').addClass('hide');
-    $('#xian_colleagues_books').addClass('hide');
-    $('#chengdu_colleagues_books').addClass('hide');
+var hideAllInitialElements = function () {
+    for (index in initials) {
+        var elements = '#' + initials[index] + '_colleagues';
+        $(elements).addClass('hide');
+    }
 }
 
-var renderBooksForXianColleagues = function() {
-    $('#xian_colleagues_books').removeClass('hide');
-    $('#all_colleagues_books').addClass('hide');
-    $('#beijing_colleagues_books').addClass('hide');
-    $('#chengdu_colleagues_books').addClass('hide');
+var hideAllOfficeElements = function () {
+    for (index in offices) {
+        var elements = '#' + offices[index] + '_colleagues_books';
+        $(elements).addClass('hide');
+    }
 }
 
-var renderBooksForChengduColleagues = function() {
-    $('#chengdu_colleagues_books').removeClass('hide');
-    $('#xian_colleagues_books').addClass('hide');
-    $('#all_colleagues_books').addClass('hide');
-    $('#beijing_colleagues_books').addClass('hide');
+var renderBooksForAllColleagues = function () {
+    showAllBooksElements();
+    hideAllOfficeElements();
+    hideAllInitialElements();
 }
 
-var officeListener = function(id) {
+var renderInitialElements = function (current_elements) {
+    for (index in initials) {
+        var elements = '#' + initials[index] + '_colleagues';
+        if (elements == current_elements) {
+            $(elements).removeClass('hide');
+        } else {
+            $(elements).addClass('hide');
+        }
+    }
+}
+
+var renderOfficeElements = function (current_elements) {
+    for (index in offices) {
+        var elements = '#' + offices[index] + '_colleagues_books';
+        if (elements == current_elements) {
+            $(elements).removeClass('hide');
+        } else {
+            $(elements).addClass('hide');
+        }
+    }
+}
+
+var renderBooksByInitial = function (elements) {
+    hideAllBooksElements();
+    hideAllOfficeElements();
+    renderInitialElements(elements);
+}
+
+var getAndRenderBooksByInitial = function (id, initial, elements) {
+    var contactsByInitial = [];
+    getContacts(id, function (contacts) {
+        var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
+        var allContacts = contactsObj.contacts;
+        for (var i = 0; i < allContacts.length; i++) {
+            if (allContacts[i].initial === initial) {
+                contactsByInitial.push(allContacts[i]);
+            }
+        }
+        contactsObj.contacts = contactsByInitial;
+        new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS(elements)]).fetch_books();
+    });
+    renderBooksByInitial(elements);
+}
+
+var renderBooksByOffice = function (elements) {
+    hideAllBooksElements();
+    hideAllInitialElements();
+    renderOfficeElements(elements);
+}
+
+var initialOnClick = function (id, initial) {
+    var tab_elements = "#" + initial + "_tab";
+    var render_elements = "#" + initial + "_colleagues";
+    $(tab_elements).on("click", function () {
+        getAndRenderBooksByInitial(id, initial, render_elements);
+    });
+}
+
+var officeOnClick = function (office) {
+    var tab_elements = "#" + office + "_colleagues_tab";
+    var render_elements = "#" + office + "_colleagues_books";
+    $(tab_elements).on("click", function () {
+        renderBooksByOffice(render_elements);
+    });
+}
+
+var officeListener = function (id) {
     $("#all_colleagues_tab").on("click", function () {
         renderBooksForAllColleagues();
     });
 
-    $("#beijing_colleagues_tab").on("click", function () {
-        renderBooksForBeijingColleagues();
+    for (index in offices) {
+        officeOnClick(offices[index]);
+    }
+}
+
+var initialListener = function (id) {
+    $('#all_tab').on("click", function () {
+        renderBooksForAllColleagues();
     });
 
-    $("#xian_colleagues_tab").on("click", function () {
-        renderBooksForXianColleagues();
-    });
-
-    $("#chengdu_colleagues_tab").on("click", function () {
-        renderBooksForChengduColleagues();
-    });
+    for (index in initials) {
+        initialOnClick(id, initials[index]);
+    }
 }
