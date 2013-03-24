@@ -82,7 +82,7 @@ Some code is copied from jQuery 1.2.1 ( by John Resig ) which is licensed under 
     var apis = {
         getUser: {url:baseUri+'people/{id}'},
         searchUsers: {url:baseUri+'people?'+sp},
-        getBook: {url:baseUri+'book/subject/{id}'},
+        getBook: {url:baseUri+'book/{id}'},
         getISBNBook: {url:baseUri+'book/subject/isbn/{isbn}'},
         searchBooks: {url:baseUri+'book/subjects?tag={tag}&'+sp},
         getMovie: {url:baseUri+'movie/subject/{id}'},

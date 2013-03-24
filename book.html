@@ -15,8 +15,9 @@
   <script type="text/javascript" src="scripts/douban.books.fav_books.js"></script>
   <script type="text/javascript" src="scripts/douban.books.recent_books.js"></script>
   <script type="text/javascript" src="scripts/douban.books.fetcher.js"></script>
+  <script type="text/javascript" src="scripts/douban.books.info.js"></script>
+  <script type="text/javascript" src="scripts/purl.js"></script>
 
-  <script type="text/javascript" src="scripts/home.js"></script>
   <script type="text/javascript" src="scripts/colleagues.js"></script>
   <script type="text/javascript" src="scripts/douban.book.tags.js"></script>
 
@@ -62,42 +63,9 @@
       	<div id="book_description">
 			<h3>你好，无聊</h3>
 			<dl>
-			  <dt class="book-image"></dt>
-			  <dd>
-				<dl>
-					<dt>副标题:</dt>
-					<dd>失控的玩具</dd>
-					<dt>原作者:</dt>
-					<dd> 乱れからくり</dd>
-					<dt>作者:</dt>
-					<dd>[日]泡坂妻夫 </dd>
-					<dt>定价:</dt>
-					<dd>28.00元</dd>
-					<dt>评价:</dt>
-					<dd>*****</dd>
-				</dl>
-			  </dd>
 			</dl>
       	</div>
       	<div id="book_content_description">
-			<div>
-				<h3>内容简介</h3>
-<pre>“车祸的原因究竟是什么啊？”
-
-“我也是一头雾水。车祸前，有好几个人看见天上掉下了什么东西。”
-
-“啊，我也看见了。”
-
-“说火球的人有，说黑烟的也有。小胜，你看见什么了？”
-
-“这……因为我一直盯着前面的油罐车，没仔细看……好像是条白烟。”
-
-“唯一确定的是，朋浩的车被那玩意儿砸到了。”</pre>
-			</div>
-			<div>
-				<h3>来自同事的评价</h3>
-	      		<p>法国小行星</p>
-			</div>
       	</div>
       </div>
       <div id="ower_section" >
@@ -111,46 +79,45 @@
     </section>
   </div>
 
-  <script id="recent-people-template" type="text/x-jquery-tmpl">
-    <div class="people clearfix">
-      <div class="people-avatar">
-        <img class="avatar" src="${image_icon}" />
-      </div>
-      <div class="people-name">
-        <span>${name}</span>
-        <span class="update-time">5分钟前</span>
-      </div>
-
-    </div>
-  </script>
-  <script id="recent-book-template" type="text/x-jquery-tmpl">
-    <div class="book">
-      <a target="_blank" data-book-id="${id}" title="${title}" href="${my_book_url}">
-        <img class="book-image" alt="${title}" src="${image_url}"/>
-      </a>
-      <a class="book-title" href="${my_book_url}">${title}</a>
-    </div>
+  <script id="book-info-template" type="text/x-jquery-tmpl">
+	  <dt class="book-image" style="background-image:url(${image_url})"></dt>
+	  <dd>
+		<dl>
+			<dt>副标题:</dt>
+			<dd>${title}</dd>
+			<dt>原作者:</dt>
+			<dd>${author}</dd>
+			<dt>作者:</dt>
+			<dd>${author}</dd>
+			<dt>定价:</dt>
+			<dd>${price}</dd>
+			<dt>评价:</dt>
+			<dd>${rate}</dd>
+		</dl>
+	  </dd>
   </script>
 
-  <script id="colleague-books-template" type="text/x-jquery-tmpl">
-      <div class="book">
-          <a target="_blank" data-book-id="${id}" title="${title}" href="${image_url}">
-              <img class="small-book" alt="${title}" src="${cover_image_url}"/>
-          </a>
-          <a class="douban_book" href="${book_url}" style="display:none">${title}</a>
-      </div>
+  <script id="summary-template" type="text/x-jquery-tmpl">
+			<div>
+				<h3>内容简介</h3>
+				<p>${summary}</p>
+			</div>
+			<div>
+				<h3>来自同事的评价</h3>
+	      		<p></p>
+			</div>
   </script>
-  <script id="colleague-template" type="text/x-jquery-tmpl">
-      <div class="colleague-avatar">
-          <a target="_blank" href="${book_page_url}">
-              <img class="avatar" src="${image_icon}" />
-          </a>
-          <a target="_blank" href="${book_page_url}">
-              <span class="name">${name}</span>
-              <span class="quantity">100</span>
-              <span class="unit">本</span>
-          </a>
-      </div>
+
+  <script type="text/javascript" >
+
+	DOUBAN.getBook({
+      id: $.url(window.location).param("bookid"),
+      callback: function(book) {
+        var book = new DOUBAN.BOOKS.DOMAIN.BOOK(null, book);
+		$("#book_description dl").append($("#book-info-template").tmpl(book));
+		$("#book_content_description").append($("#summary-template").tmpl(book));
+      }
+    });
   </script>
 </body>
 </html>

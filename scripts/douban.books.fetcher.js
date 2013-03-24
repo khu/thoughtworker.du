@@ -20,7 +20,7 @@ window["DOUBAN"]["BOOKS"]["CONTINUNOUSFETCHER"] = function (fav_books_el, contac
     this.bind_scroll_event();
   };
   this._parse = function (contact, book) {
-    return new DOUBAN.BOOKS.DOMAIN.BOOK(contact, book);
+    return new DOUBAN.BOOKS.DOMAIN.BOOK(contact, book.book);
   };
 
   this.fetch_books_for = function (contact) {
@@ -55,7 +55,7 @@ window["DOUBAN"]["BOOKS"]["ONETIMEFETCHER"] = function (fav_books_el, contacts, 
   var number_per_loading = 3;
 
   this._parse = function (contact, book) {
-    return new DOUBAN.BOOKS.DOMAIN.BOOK(contact, book);
+    return new DOUBAN.BOOKS.DOMAIN.BOOK(contact, book.book);
   };
 
   this.fetch_books_for = function (contact) {

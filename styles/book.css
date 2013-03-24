@@ -30,7 +30,6 @@ dt, dd { float:left; }
 .book-image {
     width:110px;
     height:160px;
-    background-image:url('../img/book.jpg');
     background-size: contain;
 }
 #owners {
