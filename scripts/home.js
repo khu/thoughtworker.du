@@ -40,7 +40,7 @@ var navTabListener = function(id) {
 }
 
 $(function () {
-    DOUBAN.apikey = '060ca04f1db455951225e0ed591d00bf';
+    DOUBAN.apikey = '0043bd00d263a6f400cb3702772af4dc';
     var id = window.location.search == "" ? "thoughtworks" : window.location.search.replace("?id=", "");
 
     renderHomePage(id);

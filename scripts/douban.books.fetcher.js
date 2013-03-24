@@ -20,7 +20,6 @@ window["DOUBAN"]["BOOKS"]["CONTINUNOUSFETCHER"] = function (fav_books_el, contac
     this.bind_scroll_event();
   };
   this._parse = function (contact, book) {
-    var book = DOUBAN.parseSubject(book['db:subject']);
     return new DOUBAN.BOOKS.DOMAIN.BOOK(contact, book);
   };
 
@@ -56,7 +55,6 @@ window["DOUBAN"]["BOOKS"]["ONETIMEFETCHER"] = function (fav_books_el, contacts, 
   var number_per_loading = 3;
 
   this._parse = function (contact, book) {
-    var book = DOUBAN.parseSubject(book['db:subject']);
     return new DOUBAN.BOOKS.DOMAIN.BOOK(contact, book);
   };
 
@@ -70,8 +68,8 @@ window["DOUBAN"]["BOOKS"]["ONETIMEFETCHER"] = function (fav_books_el, contacts, 
       startindex : 1,
       callback : function (books) {
         var books_for_individual = new DOUBAN.BOOKS.DOMAIN.BOOKS();
-        for (var idx = 0; idx < books.entry.length; idx++) {
-          books_for_individual.add(doubanbooks._parse(contact, books.entry[idx]));
+        for (var idx = 0; idx < books.collections.length; idx++) {
+          books_for_individual.add(doubanbooks._parse(contact, books.collections[idx]));
         }
         books = books_for_individual.books;
         for (var i = 0; i < douban_books_callback.length; i++) {

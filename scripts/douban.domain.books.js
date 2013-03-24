@@ -77,13 +77,13 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["CONTACTS"] = function(contacts) {
 };
 
 window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOK"] = function(contact, book) {
-  this.id = book.nid;
-  this.image_url = book.link.image.replace("spic", "lpic");
-  this.book_url  = book.link.alternate;
-  this.cover_image_url = book.link.image;
-  this.title = book.title;
+  this.id = book.book_id;
+  this.image_url = book.book.images.large;
+  this.book_url  = book.book.alt;
+  this.cover_image_url = book.book.images.large;
+  this.title = book.book.title;
   this.contact = contact;
-  this.my_book_url = "book.html?personid=" + contact.id + "&bookid=" + book.nid;
+  this.my_book_url = "book.html?personid=" + contact.id + "&bookid=" + this.id;
 };
 
 window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOKS"] = function(books) {

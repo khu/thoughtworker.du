@@ -71,7 +71,7 @@ Some code is copied from jQuery 1.2.1 ( by John Resig ) which is licensed under 
     var obj = {
         apikey:apikey
     };
-    var baseUri = 'http://api.douban.com/';
+    var baseUri = 'http://api.douban.com/v2/';
     var pp = 'start-index={startindex}&max-results={maxresults}';
     var sp = 'q={keyword}&'+pp;
     var pubp = 'published-min={publishedmin}&published-max={publishedmax}';
@@ -96,7 +96,9 @@ Some code is copied from jQuery 1.2.1 ( by John Resig ) which is licensed under 
         getMovieReviews: {url:baseUri+'movie/subject/{sid}/reviews?'+pup+'&'+pp},
         getMusicReviews: {url:baseUri+'music/subject/{sid}/reviews?'+pup+'&'+pp},
         getCollection: {url:baseUri+'people/{uid}/collection/{cid}'},
-        getUserCollection: {url:baseUri+'people/{uid}/collection?cat={cat}&tag={tag}&status={status}&'+updp+'&'+ratp+'&'+pp},
+        ///v2/book/user/:name/collections
+        getUserCollection: {url:baseUri+'book/user/{uid}/collections?tag={tag}&status={status}'},
+        //getUserCollection: {url:baseUri+'people/{uid}/collection?cat={cat}&tag={tag}&status={status}&'+updp+'&'+ratp+'&'+pp},
         getBookTags: {url:baseUri+'book/subject/{id}/tags?'+pp},
         getISBNBookTags: {url:baseUri+'book/subject/isbn/{isbn}/tags?'+pp},
         getMovieTags: {url:baseUri+'movie/subject/{id}/tags?'+pp},
