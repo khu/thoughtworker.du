@@ -61,9 +61,7 @@
     <section class="main-content clearfix">
       <div id="book_section" >
       	<div id="book_description">
-			<h3>你好，无聊</h3>
-			<dl>
-			</dl>
+
       	</div>
       	<div id="book_content_description">
       	</div>
@@ -80,21 +78,21 @@
   </div>
 
   <script id="book-info-template" type="text/x-jquery-tmpl">
-	  <dt class="book-image" style="background-image:url(${image_url})"></dt>
-	  <dd>
 		<dl>
-			<dt>副标题:</dt>
-			<dd>${title}</dd>
-			<dt>原作者:</dt>
-			<dd>${author}</dd>
-			<dt>作者:</dt>
-			<dd>${author}</dd>
-			<dt>定价:</dt>
-			<dd>${price}</dd>
-			<dt>评价:</dt>
-			<dd>${rate}</dd>
+		  <dt class="book-image" style="background-image:url(${image_url})"></dt>
+		  <dd>
+			<dl>
+				<dt>标题:</dt>
+				<dd>${title}</dd>
+				<dt>原作者:</dt>
+				<dd>${author}</dd>
+				<dt>定价:</dt>
+				<dd>${price}</dd>
+				<dt>评价:</dt>
+				<dd>${rate}</dd>
+			</dl>
+		  </dd>
 		</dl>
-	  </dd>
   </script>
 
   <script id="summary-template" type="text/x-jquery-tmpl">
@@ -114,7 +112,7 @@
       id: $.url(window.location).param("bookid"),
       callback: function(book) {
         var book = new DOUBAN.BOOKS.DOMAIN.BOOK(null, book);
-		$("#book_description dl").append($("#book-info-template").tmpl(book));
+		$("#book_description").append($("#book-info-template").tmpl(book));
 		$("#book_content_description").append($("#summary-template").tmpl(book));
       }
     });
