@@ -21,11 +21,18 @@ var initialNavigation = function () {
 
 var getAndRenderBooksForAll = function(id) {
     $('#all_colleagues').removeClass('hide');
+    $('#no_results_found').addClass('hide');
     hideOfficeAndInitialElements();
     getContacts(id, function (contacts) {
         var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
         new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS('#all_colleagues')]).fetch_books();
     });
+}
+
+var renderNoResultsPage = function() {
+    $('#no_results_found').removeClass('hide');
+    $('#all_colleagues').addClass('hide');
+    hideOfficeAndInitialElements();
 }
 
 var hideOfficeAndInitialElements = function () {
@@ -37,6 +44,7 @@ var hideOfficeAndInitialElements = function () {
 }
 
 var renderElements = function (current_elements) {
+    $('#no_results_found').addClass('hide');
     var elements = offices.concat(initials).concat("all");
     for (index in elements) {
         var element = '#' + elements[index] + '_colleagues';
@@ -54,9 +62,8 @@ var renderBooksByElements = function (elements) {
 
 var getAndRenderBooksByInitialAndOffice = function (id, office, initial, elements) {
     $(elements).empty();
+    var contactsObj;
     getContacts(id, function (contacts) {
-        var contactsObj;
-
         if(office != "all") {
             var contactsInOffice = [];
             for (var i = 0; i < contacts.length; i++) {
@@ -82,7 +89,12 @@ var getAndRenderBooksByInitialAndOffice = function (id, office, initial, element
 
         new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS(elements)]).fetch_books();
     });
+
     renderBooksByElements(elements);
+
+    if(contactsObj.contacts.length === 0){
+        renderNoResultsPage();
+    }
 }
 
 var getSelectedOfficeTab = function() {
