@@ -1,3 +1,9 @@
+var office_mapper = {
+    "beijing" : "北京",
+    "xian" : "陕西西安",
+    "chengdu" : "四川成都"
+}
+
 var realname_mapper = {
     "郭晓":"郭晓",
     "Nicholas":"任晓军",
@@ -54,11 +60,19 @@ var getRealname = function (name) {
     return "";
 };
 
-
 var getInitial= function (realname) {
     for (i in this.initial_mapper) {
         if (i == realname) {
             return this.initial_mapper[i];
+        }
+    }
+    return "";
+};
+
+var getOffice= function (office) {
+    for (i in this.office_mapper) {
+        if (i == office) {
+            return this.office_mapper[i];
         }
     }
     return "";

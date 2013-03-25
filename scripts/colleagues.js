@@ -95,11 +95,17 @@ var renderBooksByInitial = function (elements) {
     renderInitialElements(elements);
 }
 
-var getAndRenderBooksByInitial = function (id, initial, elements) {
+var getAndRenderBooksByInitialAndOffice = function (id, selected_office, initial, elements) {
     $(elements).empty();
     var contactsByInitial = [];
     getContacts(id, function (contacts) {
-        var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
+        var contactsInOffice = [];
+        for (var i = 0; i < contacts.length; i++) {
+            if (contacts[i].location === selected_office) {
+                contactsInOffice.push(contacts[i]);
+            }
+        }
+        var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contactsInOffice);
         var allContacts = contactsObj.contacts;
         for (var i = 0; i < allContacts.length; i++) {
             if (allContacts[i].initial === initial) {
@@ -118,11 +124,17 @@ var renderBooksByOffice = function (elements) {
     renderOfficeElements(elements);
 }
 
+var getSelectedOfficeTab = function() {
+    var office = $(".office_tab.selected").attr("id").split("_colleagues_tab")[0];
+    return getOffice(office);
+}
+
 var initialOnClick = function (id, initial) {
     var tab_elements = "#" + initial + "_tab";
     var render_elements = "#" + initial + "_colleagues";
     $(tab_elements).on("click", function () {
-        getAndRenderBooksByInitial(id, initial, render_elements);
+        var selected_office = getSelectedOfficeTab();
+        getAndRenderBooksByInitialAndOffice(id, selected_office, initial, render_elements);
     });
 }
 
