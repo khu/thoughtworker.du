@@ -30,7 +30,7 @@ var realname_mapper = {
 };
 var initial_mapper = {
     "郭晓":"G",
-    "任晓军":"",
+    "任晓军":"R",
     "朱晓娜":"Z",
     "何飞":"H",
     "郑晔":"Z",
