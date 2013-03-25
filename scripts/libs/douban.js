@@ -71,7 +71,7 @@ Some code is copied from jQuery 1.2.1 ( by John Resig ) which is licensed under 
     var obj = {
         apikey:apikey
     };
-    var baseUri = 'http://api.douban.com/v2/';
+    var baseUri = 'https://api.douban.com/v2/';
     var pp = 'start-index={startindex}&max-results={maxresults}';
     var sp = 'q={keyword}&'+pp;
     var pubp = 'published-min={publishedmin}&published-max={publishedmax}';
