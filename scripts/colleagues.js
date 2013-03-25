@@ -19,114 +19,79 @@ var initialNavigation = function () {
     });
 }
 
-var getContactsSectionForAll = function (id) {
+var getAndRenderBooksForAll = function(id) {
+    $('#all_colleagues').removeClass('hide');
+    hideOfficeAndInitialElements();
     getContacts(id, function (contacts) {
         var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
-        new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS('#all_colleagues_books')]).fetch_books();
+        new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS('#all_colleagues')]).fetch_books();
     });
 }
 
-var getContactsSectionForOffice = function (id, office, elements) {
-    var contactsInOffice = [];
-    getContacts(id, function (contacts) {
-        for (var i = 0; i < contacts.length; i++) {
-            if (contacts[i].location === office) {
-                contactsInOffice.push(contacts[i]);
-            }
-        }
-        var contactsObjInOffice = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contactsInOffice);
-        new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObjInOffice, [new DOUBAN.BOOKS.RECENTBOOKS(elements)]).fetch_books();
-    });
-}
-
-var hideAllBooksElements = function () {
-    $('#all_colleagues_books').addClass('hide');
-}
-
-var showAllBooksElements = function () {
-    $('#all_colleagues_books').removeClass('hide');
-}
-
-var hideAllInitialElements = function () {
-    for (index in initials) {
-        var elements = '#' + initials[index] + '_colleagues';
-        $(elements).addClass('hide');
+var hideOfficeAndInitialElements = function () {
+    var elements = offices.concat(initials);
+    for (index in elements) {
+        var element = '#' + elements[index] + '_colleagues';
+        $(element).addClass('hide');
     }
 }
 
-var hideAllOfficeElements = function () {
-    for (index in offices) {
-        var elements = '#' + offices[index] + '_colleagues_books';
-        $(elements).addClass('hide');
-    }
-}
-
-var renderBooksForAllColleagues = function () {
-    showAllBooksElements();
-    hideAllOfficeElements();
-    hideAllInitialElements();
-}
-
-var renderInitialElements = function (current_elements) {
-    for (index in initials) {
-        var elements = '#' + initials[index] + '_colleagues';
-        if (elements == current_elements) {
-            $(elements).removeClass('hide');
+var renderElements = function (current_elements) {
+    var elements = offices.concat(initials).concat("all");
+    for (index in elements) {
+        var element = '#' + elements[index] + '_colleagues';
+        if (element === current_elements) {
+            $(element).removeClass('hide');
         } else {
-            $(elements).addClass('hide');
+            $(element).addClass('hide');
         }
     }
 }
 
-var renderOfficeElements = function (current_elements) {
-    for (index in offices) {
-        var elements = '#' + offices[index] + '_colleagues_books';
-        if (elements == current_elements) {
-            $(elements).removeClass('hide');
-        } else {
-            $(elements).addClass('hide');
-        }
-    }
+var renderBooksByElements = function (elements) {
+    renderElements(elements);
 }
 
-var renderBooksByInitial = function (elements) {
-    hideAllBooksElements();
-    hideAllOfficeElements();
-    renderInitialElements(elements);
-}
-
-var getAndRenderBooksByInitialAndOffice = function (id, selected_office, initial, elements) {
+var getAndRenderBooksByInitialAndOffice = function (id, office, initial, elements) {
     $(elements).empty();
-    var contactsByInitial = [];
     getContacts(id, function (contacts) {
-        var contactsInOffice = [];
-        for (var i = 0; i < contacts.length; i++) {
-            if (contacts[i].location === selected_office) {
-                contactsInOffice.push(contacts[i]);
+        var contactsObj;
+
+        if(office != "all") {
+            var contactsInOffice = [];
+            for (var i = 0; i < contacts.length; i++) {
+                if (contacts[i].location == office) {
+                    contactsInOffice.push(contacts[i]);
+                }
             }
+            contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contactsInOffice);
+        }else {
+            contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contacts);
         }
-        var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(contactsInOffice);
-        var allContacts = contactsObj.contacts;
-        for (var i = 0; i < allContacts.length; i++) {
-            if (allContacts[i].initial === initial) {
-                contactsByInitial.push(allContacts[i]);
+
+        if(initial != "all") {
+            var contactsByInitial = [];
+            var allContacts = contactsObj.contacts;
+            for (var i = 0; i < allContacts.length; i++) {
+                if (allContacts[i].initial === initial) {
+                    contactsByInitial.push(allContacts[i]);
+                }
             }
+            contactsObj.contacts = contactsByInitial;
         }
-        contactsObj.contacts = contactsByInitial;
+
         new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.RECENTBOOKS(elements)]).fetch_books();
     });
-    renderBooksByInitial(elements);
-}
-
-var renderBooksByOffice = function (elements) {
-    hideAllBooksElements();
-    hideAllInitialElements();
-    renderOfficeElements(elements);
+    renderBooksByElements(elements);
 }
 
 var getSelectedOfficeTab = function() {
     var office = $(".office_tab.selected").attr("id").split("_colleagues_tab")[0];
     return getOffice(office);
+}
+
+var getSelectedInitialTab = function() {
+    return $(".initial_tab.selected").attr("id").split("_tab")[0];
 }
 
 var initialOnClick = function (id, initial) {
@@ -138,27 +103,36 @@ var initialOnClick = function (id, initial) {
     });
 }
 
-var officeOnClick = function (office) {
+var officeOnClick = function (id, office) {
     var tab_elements = "#" + office + "_colleagues_tab";
-    var render_elements = "#" + office + "_colleagues_books";
+    var render_elements = "#" + office + "_colleagues";
     $(tab_elements).on("click", function () {
-        renderBooksByOffice(render_elements);
+        var selected_office = getOffice(office);
+        var selected_initial = getSelectedInitialTab();
+        getAndRenderBooksByInitialAndOffice(id, selected_office, selected_initial, render_elements);
     });
+}
+
+var allTabClicked = function(id) {
+    var render_elements = "#all_colleagues";
+    var selected_office = getSelectedOfficeTab();
+    var selected_initial = getSelectedInitialTab();
+    getAndRenderBooksByInitialAndOffice(id, selected_office, selected_initial, render_elements);
 }
 
 var officeListener = function (id) {
     $("#all_colleagues_tab").on("click", function () {
-        renderBooksForAllColleagues();
+        allTabClicked(id);
     });
 
     for (index in offices) {
-        officeOnClick(offices[index]);
+        officeOnClick(id, offices[index]);
     }
 }
 
 var initialListener = function (id) {
     $('#all_tab').on("click", function () {
-        renderBooksForAllColleagues();
+        allTabClicked(id);
     });
 
     for (index in initials) {

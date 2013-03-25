@@ -1,4 +1,5 @@
 var office_mapper = {
+    "all" : "all",
     "beijing" : "北京",
     "xian" : "陕西西安",
     "chengdu" : "四川成都"
