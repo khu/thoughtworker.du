@@ -43,6 +43,11 @@
     margin-bottom: 50px;
 }
 
+#colleagues_container .no_result_found {
+    font-size: 18px;
+    padding-left: 42px;
+}
+
 #colleagues_container .colleague-avatar {
     background-color: white;
     box-shadow: 0 0 3px #d0d0d0;

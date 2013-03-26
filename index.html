@@ -167,10 +167,11 @@
             </div>
         </div>
 
-        <div id="all_colleagues_books" class="colleagues_books_container books row clearfix"></div>
-        <div id="beijing_colleagues_books" class="colleagues_books_container books row clearfix"></div>
-        <div id="xian_colleagues_books" class="colleagues_books_container books row clearfix"></div>
-        <div id="chengdu_colleagues_books" class="colleagues_books_container books row clearfix"></div>
+        <div id="no_results_found" class="colleagues_books_container no_result_found clearfix hide">No Results Found.</div>
+        <div id="all_colleagues" class="colleagues_books_container books row clearfix"></div>
+        <div id="beijing_colleagues" class="colleagues_books_container books row clearfix"></div>
+        <div id="xian_colleagues" class="colleagues_books_container books row clearfix"></div>
+        <div id="chengdu_colleagues" class="colleagues_books_container books row clearfix"></div>
         <div id="A_colleagues" class="colleagues_books_container books row clearfix"></div>
         <div id="B_colleagues" class="colleagues_books_container books row clearfix"></div>
         <div id="C_colleagues" class="colleagues_books_container books row clearfix"></div>
@@ -237,7 +238,7 @@
           </a>
           <a target="_blank" href="${book_page_url}">
               <span class="name">${realname}</span>
-              <span class="quantity">100</span>
+              <span class="quantity">${totalBooks}</span>
               <span class="unit">本</span>
           </a>
       </div>

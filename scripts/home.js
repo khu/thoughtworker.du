@@ -24,11 +24,7 @@ var navTabListener = function(id) {
 
     $("#colleagues").on("click", function () {
         $("#colleagues_container").removeClass("hide");
-        renderBooksForAllColleagues();
-        getContactsSectionForAll(id);
-        getContactsSectionForOffice(id, "北京", '#beijing_colleagues_books');
-        getContactsSectionForOffice(id, "陕西西安", '#xian_colleagues_books');
-        getContactsSectionForOffice(id, "四川成都", '#chengdu_colleagues_books');
+        getAndRenderBooksForAll(id);
     });
 }
 
