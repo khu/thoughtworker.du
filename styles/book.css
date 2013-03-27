@@ -36,13 +36,19 @@ dt, dd { float:left; }
     padding-left : 0;
 }
 #owners li {
-    float : left;
+    float:left;
     width:48px;
     height:48px;
     margin-left:5px;
-    background-image:url('../img/icon.jpg');
+}
+#owners li span {
+    width:48px;
+    height:48px;
 }
 
 #owners li a {
-    margin-top:500px;
+    font-size:8pt;
+    text-decoration:underline;
+    cursor:pointer;
 }
+
