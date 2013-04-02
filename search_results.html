@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>借书圈</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+    <script type="text/javascript" src="scripts/libs/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="scripts/libs/jquery.template.js"></script>
+    <script type="text/javascript" src="scripts/libs/jquery.masonry.min.js"></script>
+    <script type="text/javascript" src="scripts/libs/jquery.fancybox-1.3.4.js"></script>
+
+    <script type="text/javascript" src="scripts/libs/douban.js"></script>
+    <script type="text/javascript" src="http://www.douban.com/js/api-parser.js?v=1"></script>
+    <script type="text/javascript" src="scripts/douban.domain.books.js"></script>
+    <script type="text/javascript" src="scripts/douban.books.fetcher.js"></script>
+    <script type="text/javascript" src="scripts/douban.books.fav_books.js"></script>
+    <script type="text/javascript" src="scripts/douban.books.recent_books.js"></script>
+    <script type="text/javascript" src="scripts/douban.books.fetcher.js"></script>
+    <script type="text/javascript" src="scripts/douban.contact.mapper.js"></script>
+
+    <script type="text/javascript" src="scripts/header.js"></script>
+    <script type="text/javascript" src="scripts/home.js"></script>
+    <script type="text/javascript" src="scripts/colleagues.js"></script>
+    <script type="text/javascript" src="scripts/search-results.js"></script>
+    <script type="text/javascript" src="scripts/douban.book.tags.js"></script>
+
+    <link href="styles/ie.css" rel="stylesheet" type="text/css"/>
+    <link href="styles/font-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="styles/base.css" rel="stylesheet" type="text/css"/>
+    <link href="styles/recent.css" rel="stylesheet" type="text/css"/>
+    <link href="styles/colleagues.css" rel="stylesheet" type="text/css"/>
+    <link href="styles/search_result.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+<div class="container">
+    <section class="header">
+        <ul class="navigate_bar clearfix">
+            <li class="logo">
+                <div>借书圈</div>
+            </li>
+            <li class="search">
+                <form action="search-result" class="search-form">
+                    <input id="search-input" class="search-input" type="text" placeholder="想添/借什么书">
+                    <button id="search-button" class="search-button">
+                        <i class="icon-search"></i>
+                        搜索
+                    </button>
+                </form>
+            </li>
+            <li>
+                <a id="home" class="nav_tab home selected" href="#">首页</a>
+            </li>
+            <li>
+                <a id="colleagues" class="nav_tab colleague" href="#colleagues_container">同事们</a>
+            </li>
+            <li>
+                <a class="nav_tab my-books" href="#">我的书</a>
+            </li>
+            <li>
+                <a class="nav_tab exit" href="#">退出</a>
+            </li>
+        </ul>
+    </section>
+    <section class="main-content">
+        <div class="search-result-tab-container">
+            <div id="search-results" class="search-result-label">搜索结果:</div>
+            <div class="colleague-filter-tab search-result-tab">
+                <ul class="search-tabs">
+                    <li class="search-tab">
+                        <a id="book-result" class="tab search_result_tab selected" href="#">书籍(3)</a>
+                    </li>
+                    <li class="search-tab">
+                        <a id="colleague-result" class="tab search_result_tab" href="#">同事(2)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="search-result-content">
+            <div id="search-result-books-content">books</div>
+            <div id="search-result-colleagues-content" class="hide">colleagues</div>
+        </div>
+    </section>
+</div>
+</body>
+</html>

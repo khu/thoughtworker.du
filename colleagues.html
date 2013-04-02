@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>借书圈</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+    <script type="text/javascript" src="scripts/libs/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="scripts/libs/jquery.template.js"></script>
+    <script type="text/javascript" src="scripts/libs/jquery.masonry.min.js"></script>
+    <script type="text/javascript" src="scripts/libs/jquery.fancybox-1.3.4.js"></script>
+
+    <script type="text/javascript" src="scripts/libs/douban.js" ></script>
+    <script type="text/javascript" src="http://www.douban.com/js/api-parser.js?v=1"></script>
+    <script type="text/javascript" src="scripts/douban.domain.books.js"></script>
+    <script type="text/javascript" src="scripts/douban.books.fetcher.js"></script>
+    <script type="text/javascript" src="scripts/douban.books.fav_books.js"></script>
+    <script type="text/javascript" src="scripts/douban.books.recent_books.js"></script>
+    <script type="text/javascript" src="scripts/douban.books.fetcher.js"></script>
+    <script type="text/javascript" src="scripts/douban.contact.mapper.js"></script>
+
+    <script type="text/javascript" src="scripts/header.js"></script>
+    <script type="text/javascript" src="scripts/home.js"></script>
+    <script type="text/javascript" src="scripts/colleagues.js"></script>
+    <script type="text/javascript" src="scripts/douban.book.tags.js"></script>
+
+    <link href="styles/ie.css" rel="stylesheet" type="text/css" />
+    <link href="styles/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="styles/base.css" rel="stylesheet" type="text/css" />
+    <link href="styles/recent.css" rel="stylesheet" type="text/css" />
+    <link href="styles/colleagues.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<div class="container">
+    <section class="header">
+        <ul class="navigate_bar clearfix">
+            <li class="logo">
+                <div>借书圈</div>
+            </li>
+            <li class="search">
+                <form action="search_results.html" class="search-form">
+                    <input class="search-input" type="text" placeholder="想添/借什么书">
+                    <button class="search-button">
+                        <i class="icon-search"></i>
+                        搜索
+                    </button>
+                </form>
+            </li>
+            <li>
+                <a id="home" class="nav_tab home selected" href="index.html">首页</a>
+            </li>
+            <li>
+                <a id="colleagues" class="nav_tab colleague" href="#">同事们</a>
+            </li>
+            <li>
+                <a class="nav_tab my-books" href="#">我的书</a>
+            </li>
+            <li>
+                <a class="nav_tab exit" href="#">退出</a>
+            </li>
+        </ul>
+    </section>
+    <section class="main-content">
+        <div id="colleagues_container" class="nav_page books row">
+            <div class="colleagues_tabs">
+                <div class="colleague-filter-tab office_filter">
+                    <ul>
+                        <li>
+                            <a id="all_colleagues_tab" class="tab office_tab selected" href="#">全部</a>
+                        </li>
+                        <li>
+                            <a id="beijing_colleagues_tab" class="tab office_tab" href="#">北京分公司</a>
+                        </li>
+                        <li>
+                            <a id="xian_colleagues_tab" class="tab office_tab" href="#">西安分公司</a>
+                        </li>
+                        <li>
+                            <a id="chengdu_colleagues_tab" class="tab office_tab" href="#">成都分公司</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="colleague-filter-tab initial_filter">
+                    <ul>
+                        <li>
+                            <a id="all_tab" class="tab initial_tab initial_all_tab selected" href="#">全部</a>
+                        </li>
+                        <li>
+                            <a id="A_tab" class="tab initial_tab" href="#">A</a>
+                        </li>
+                        <li>
+                            <a id="B_tab" class="tab initial_tab" href="#">B</a>
+                        </li>
+                        <li>
+                            <a id="C_tab" class="tab initial_tab" href="#">C</a>
+                        </li>
+                        <li>
+                            <a id="D_tab" class="tab initial_tab" href="#">D</a>
+                        </li>
+                        <li>
+                            <a id="E_tab" class="tab initial_tab" href="#">E</a>
+                        </li>
+                        <li>
+                            <a id="F_tab" class="tab initial_tab" href="#">F</a>
+                        </li>
+                        <li>
+                            <a id="G_tab" class="tab initial_tab" href="#">G</a>
+                        </li>
+                        <li>
+                            <a id="H_tab" class="tab initial_tab" href="#">H</a>
+                        </li>
+                        <li>
+                            <a id="I_tab" class="tab initial_tab" href="#">I</a>
+                        </li>
+                        <li>
+                            <a id="J_tab" class="tab initial_tab" href="#">J</a>
+                        </li>
+                        <li>
+                            <a id="K_tab" class="tab initial_tab" href="#">K</a>
+                        </li>
+                        <li>
+                            <a id="L_tab" class="tab initial_tab" href="#">L</a>
+                        </li>
+                        <li>
+                            <a id="M_tab" class="tab initial_tab" href="#">M</a>
+                        </li>
+                        <li>
+                            <a id="N_tab" class="tab initial_tab" href="#">N</a>
+                        </li>
+                        <li>
+                            <a id="O_tab" class="tab initial_tab" href="#">O</a>
+                        </li>
+                        <li>
+                            <a id="P_tab" class="tab initial_tab" href="#">P</a>
+                        </li>
+                        <li>
+                            <a id="Q_tab" class="tab initial_tab" href="#">Q</a>
+                        </li>
+                        <li>
+                            <a id="R_tab" class="tab initial_tab" href="#">R</a>
+                        </li>
+                        <li>
+                            <a id="S_tab" class="tab initial_tab" href="#">S</a>
+                        </li>
+                        <li>
+                            <a id="T_tab" class="tab initial_tab" href="#">T</a>
+                        </li>
+                        <li>
+                            <a id="U_tab" class="tab initial_tab" href="#">U</a>
+                        </li>
+                        <li>
+                            <a id="V_tab" class="tab initial_tab" href="#">V</a>
+                        </li>
+                        <li>
+                            <a id="W_tab" class="tab initial_tab" href="#">W</a>
+                        </li>
+                        <li>
+                            <a id="X_tab" class="tab initial_tab" href="#">X</a>
+                        </li>
+                        <li>
+                            <a id="Y_tab" class="tab initial_tab" href="#">Y</a>
+                        </li>
+                        <li>
+                            <a id="Z_tab" class="tab initial_tab" href="#">Z</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="no_results_found" class="colleagues_books_container no_result_found clearfix hide">No Results Found.</div>
+            <div id="all_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="beijing_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="xian_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="chengdu_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="A_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="B_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="C_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="D_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="E_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="F_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="G_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="H_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="I_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="J_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="K_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="L_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="M_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="N_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="O_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="P_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="Q_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="R_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="S_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="T_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="U_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="V_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="W_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="X_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="Y_colleagues" class="colleagues_books_container books row clearfix"></div>
+            <div id="Z_colleagues" class="colleagues_books_container books row clearfix"></div>
+        </div>
+    </section>
+</div>
+
+<script id="colleague-books-template" type="text/x-jquery-tmpl">
+    <div class="book">
+        <a target="_blank" data-book-id="${id}" title="${title}" href="${my_book_url}">
+            <img class="small-book" alt="${title}" src="${cover_image_url}"/>
+        </a>
+        <a class="douban_book" href="${book_url}" style="display:none">${title}</a>
+    </div>
+</script>
+<script id="colleague-template" type="text/x-jquery-tmpl">
+    <div class="colleague-avatar">
+        <a target="_blank" href="${book_page_url}">
+            <img class="avatar" src="${image_icon}" />
+        </a>
+        <a target="_blank" href="${book_page_url}">
+            <span class="name">${realname}</span>
+            <span class="quantity">${totalBooks}</span>
+            <span class="unit">本</span>
+        </a>
+    </div>
+</script>
+</body>
+</html>

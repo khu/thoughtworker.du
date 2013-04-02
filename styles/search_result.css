@@ -1,0 +1,36 @@
+.search-result-label {
+    display: inline-block;
+    height: 6px;
+    padding-left: 30px;
+}
+
+.search-tabs {
+    margin-left: -30px;
+}
+
+.search-result-tab {
+    display: inline-block;
+}
+
+.search-result-tab .search-tab {
+    display: inline-block;
+}
+
+.search-tabs .selected {
+    background-color: #7a8d5d;
+    color: #ffffff;
+    border-radius: 3px;
+}
+
+.search-result-tab-container {
+    height: 53px;
+    border-bottom: 1px #ccc solid;
+    padding-bottom: 18px;
+    padding-top: 15px;
+}
+
+#search-result-content {
+    padding-top: 20px;
+    padding-left: 17px;
+    border-top: 1px solid white;
+}

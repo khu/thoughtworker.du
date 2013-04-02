@@ -37,6 +37,9 @@ $(function () {
     navigation();
     navTabListener(id);
 
+    searchResultNavigation();
+    searchResultListener(id);
+
     officeNavigation();
     officeListener(id);
 
