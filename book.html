@@ -66,33 +66,37 @@
       	<div id="book_content_description">
       	</div>
       </div>
-      <div id="ower_section" >
-      	<h3>愿意借书给你的</h3>
-		<ul id="owners">
-			<li><span style="background-image:url('http://img3.douban.com/icon/u3420987-6.jpg');display:block"></span><a style="display:block">向TA借书</a></li>
-			<li><span style="background-image:url('http://img3.douban.com/icon/u42874393-6.jpg');display:block"></span><a style="display:block">向TA借书</a></li>
-			<li><span style="background-image:url('http://img3.douban.com/icon/u1377375-7.jpg');display:block"></span><a style="display:block">向TA借书</a></li>
-		</ul>			
-      </div>
     </section>
   </div>
 
   <script id="book-info-template" type="text/x-jquery-tmpl">
-		<dl>
-		  <dt class="book-image" style="background-image:url(${image_url})"></dt>
-		  <dd>
-			<dl>
-				<dt>标题:</dt>
-				<dd>${title}</dd>
-				<dt>原作者:</dt>
-				<dd>${author}</dd>
-				<dt>定价:</dt>
-				<dd>${price}</dd>
-				<dt>评价:</dt>
-				<dd>${rate}</dd>
-			</dl>
-		  </dd>
-		</dl>
+		<div >
+			<div class="book-image" style="background-image:url(${image_url});"></div>
+			<div style="float:left;display:block;margin-top:20px;margin-left:20px;">
+				<dl style="float:none;height:100px;">
+					<dt>标题:</dt>
+					<dd>${title}</dd>
+					<dt>原作者:</dt>
+					<dd>${author}</dd>
+					<dt>定价:</dt>
+					<dd>${price}</dd>
+					<dt>评价:</dt>
+					<dd>${rate}</dd>
+				</dl>
+				<div style="background-color:white;height:150px;width:500px;">
+			      <div id="ower_section" >
+			      	<span>TA愿意借书给你</span>
+					<ul id="owners">
+						<li style="border: 2px solid #df0001;margin: -1px;box-shadow: 1px 1px 3px 0 rgba(0,0,0,.6);"><span style="background-image:url('http://img3.douban.com/icon/u3420987-6.jpg');display:block"></span><i>以选中</i></li>
+						<li><span style="background-image:url('http://img3.douban.com/icon/u42874393-6.jpg');display:block"></span></li>
+						<li><span style="background-image:url('http://img3.douban.com/icon/u1377375-7.jpg');display:block"></span></li>
+					</ul>
+					<div style="clear:both;"></div>
+					<div id="borrow_button"><a href="mailto:xqzhang@thoughtworks.com?subject=张晓庆，能借TDD这本书给我么？&body=晓庆%0D%0A我非常想读TDD这本书，从借书圈里看到你愿意借出这本书，我1个月内还你，我会保持书的完好%0D%0A陈金洲">向TA借书</a></div>
+			      </div>				
+				</div>
+			</div>
+		</div>
   </script>
 
   <script id="summary-template" type="text/x-jquery-tmpl">

@@ -4,15 +4,11 @@
     min-height:200px;
     border-right : 1px solid gray;
     padding-left:30px;
+    padding-right:10px;
 }
 
 
-#ower_section {
-    float:right;    
-    width:25%;
-}
-
-dl {padding-top:0;margin-top:0;;}
+dl {padding-top:0;margin-top:0;float:left}
 dt {clear:left }
 dt, dd { float:left; }
 
@@ -29,11 +25,24 @@ dt, dd { float:left; }
 }
 .book-image {
     width:110px;
-    height:160px;
+    height:200px;
     background-size: contain;
+    background-repeat:no-repeat;
+    margin-top:20px;
+    float:left;
 }
 #owners {
     padding-left : 0;
+    float:left;
+}
+#ower_section {
+    position:absolute;
+}
+#ower_section span {
+    float:left;
+    display:block;
+    padding-top:30px;
+    width:120px;
 }
 #owners li {
     float:left;
@@ -42,8 +51,13 @@ dt, dd { float:left; }
     margin-left:5px;
 }
 #owners li span {
-    width:48px;
-    height:48px;
+    width:50px;
+    height:50px;
+    background-repeat:no-repeat;
+}
+
+#borrow_button {
+    margin-left : 120px;
 }
 
 #owners li a {
@@ -52,3 +66,22 @@ dt, dd { float:left; }
     cursor:pointer;
 }
 
+i {
+    display: block;
+    position:absolute;
+    left:158px;
+    top:54px;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    text-indent: -99em;
+    background-position: -65px 0;
+    background-image: url(taobao.png);
+    background-repeat: repeat;
+}
+
+#owners li:hover {
+    border: 2px solid #df0001;
+    box-shadow: 1px 1px 3px 0 rgba(0,0,0,.6);
+    cursor:pointer;
+}
