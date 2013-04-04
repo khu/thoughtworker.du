@@ -1,0 +1,54 @@
+#person-info {
+    height: 15px;
+    border-bottom: 1px #ccc solid;
+    padding-bottom: 30px;
+    padding-top: 15px;
+    padding-left: 30px;
+}
+
+#person-info .people-avatar {
+    display: inline-block;
+}
+
+#person-info .people-name {
+    display: inline-block;
+}
+
+#person-tabs-and-books {
+    border-top: 1px solid white;
+    margin-bottom: -30px;
+}
+
+#person-tag-tabs-container {
+    border-right: 1px #ccc solid;
+    display: inline-block;
+    padding-right: 10px;
+    margin-left: -26px;
+}
+
+#person-tag-tabs-container ul {
+    margin-top: 7px;
+}
+
+#person-tag-tabs-container .selected {
+    background-color: #7a8d5d;
+    color: #ffffff;
+    border-radius: 3px;
+}
+
+#person-tag-tabs-container .person-tag-tab {
+    padding-top: 10px;
+}
+
+#person-tag-tabs-container .person-tag-tab .tag_tab {
+    padding: 6px 10px;
+}
+
+.person-tag-tab .number {
+    padding-left: 100px;
+}
+
+#person-books-container {
+    padding-left: 17px;
+    display: inline-block;
+}

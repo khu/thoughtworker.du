@@ -40,6 +40,8 @@ $(function () {
     searchResultNavigation();
     searchResultListener(id);
 
+    tagNavigation();
+
     officeNavigation();
     officeListener(id);
 
