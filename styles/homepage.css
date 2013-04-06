@@ -1,17 +1,28 @@
 #person-info {
-    height: 15px;
     border-bottom: 1px #ccc solid;
-    padding-bottom: 30px;
-    padding-top: 15px;
-    padding-left: 30px;
+    padding-left: 25px;
+    height: 40px;
+    margin-top: 75px;
 }
 
-#person-info .people-avatar {
+
+#person-info .avatar {
+    /*background-image:url('http://img3.douban.com/icon/u3420987-6.jpg');*/
     display: inline-block;
+    margin-top: -57px;
+    height: 80px;
+    width: 80px;
+    background-size: 100%;
+    border: 3px solid white;
+    float: left;
 }
 
-#person-info .people-name {
+#person-info .name {
     display: inline-block;
+    padding-left: 12px;
+    float: left;
+    margin-top: 7px;
+    color: #666;
 }
 
 #person-tabs-and-books {
