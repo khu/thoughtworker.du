@@ -1,16 +1,16 @@
 #person-info {
     border-bottom: 1px #ccc solid;
     padding-left: 25px;
-    height: 40px;
-    margin-top: 75px;
+    height: 55px;
+    margin-top: 85px;
 }
 
 
 #person-info .avatar {
     display: inline-block;
     margin-top: -57px;
-    height: 80px;
-    width: 80px;
+    height: 90px;
+    width: 90px;
     background-size: 100%;
     border: 3px solid white;
     float: left;
@@ -18,22 +18,21 @@
 
 #person-info .name {
     display: inline-block;
-    padding-left: 12px;
+    padding-left: 17px;
     float: left;
-    margin-top: 7px;
+    margin-top: 19px;
     color: #666;
 }
 
 #person-tabs-and-books {
     border-top: 1px solid white;
-    margin-bottom: -30px;
 }
 
 #person-tag-tabs-container {
-    border-right: 1px #ccc solid;
     display: inline-block;
-    padding-right: 10px;
-    margin-left: -26px;
+    margin-left: -22px;
+    padding-top: 5px;
+    float: left;
 }
 
 #person-tag-tabs-container ul {
@@ -59,6 +58,18 @@
 }
 
 #person-books-container {
-    padding-left: 17px;
+    margin-left: 220px;
+    padding-left: 16px;
+    border-left: 1px #ccc solid;
+}
+
+#person-books-container .book{
     display: inline-block;
+    height: 250px;
+    width: 185px;
+    padding: 15px 18px 40px 18px;
+}
+
+#person-books-container .book img{
+    background-size: 100%;
 }

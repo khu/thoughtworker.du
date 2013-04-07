@@ -113,9 +113,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="person-books-container">
-                <div>books container</div>
-            </div>
+            <div id="person-books-container"></div>
         </div>
     </section>
 </div>
@@ -127,12 +125,34 @@
     <span class="name">${user_name}</span>
 </script>
 
+<script id="person-book-content-template" type="text/x-jquery-tmpl">
+    <div class="book">
+        <a target="_blank" href="${my_book_url}">
+            <img class="book" src="${image_url}"/>
+        </a>
+    </div>
+</script>
+
 <script type="text/javascript">
     DOUBAN.getUserBasicInfo({
         id:$.url(window.location).param("personid"),
         callback:function (user) {
             var user_basic = new DOUBAN.BOOKS.DOMAIN.USER_BASIC(user.avatar, user.name);
             $("#person-info").append($("#person-avatar-template").tmpl(user_basic));
+        }
+    });
+
+    DOUBAN.getUserCollection({
+        uid : $.url(window.location).param("personid"),
+        status : 'read',
+        callback : function (books) {
+            var books_array = books.collections;
+            for (var index=0; index<books_array.length; index++) {
+                var book = books_array[index];
+                var bookObj = book.book;
+                var domainBook = new DOUBAN.BOOKS.DOMAIN.BOOK(null, bookObj);
+                $("#person-books-container").append($("#person-book-content-template").tmpl(domainBook));
+            }
         }
     });
 </script>
