@@ -3,7 +3,7 @@ function build_contact(nid, name) {
     contact.id = nid;
     contact.name = name;
     contact.page_url = "http://page_url";
-    contact.book_page_url = "http://book.douban.com/people/" + nid;
+    contact.person_page_url = "http://book.douban.com/people/" + nid;
     contact.image_icon = "icon";
     contact.link = {}
     contact.link.alternate = "alternative"

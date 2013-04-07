@@ -23,6 +23,7 @@
     <script type="text/javascript" src="scripts/search-results.js"></script>
     <script type="text/javascript" src="scripts/douban.book.tags.js"></script>
     <script type="text/javascript" src="scripts/homepage.js"></script>
+    <script type="text/javascript" src="scripts/purl.js"></script>
 
     <link href="styles/ie.css" rel="stylesheet" type="text/css"/>
     <link href="styles/font-awesome.css" rel="stylesheet" type="text/css"/>
@@ -64,12 +65,7 @@
         </ul>
     </section>
     <section class="main-content">
-        <div id="person-info">
-            <span >
-                <img class="avatar" src="http://img3.douban.com/icon/u3420987-6.jpg" />
-            </span>
-            <span class="name">赵亮</span>
-        </div>
+        <div id="person-info"></div>
         <div id="person-tabs-and-books">
             <div id="person-tag-tabs-container">
                 <ul>
@@ -123,5 +119,23 @@
         </div>
     </section>
 </div>
+
+<script id="person-avatar-template" type="text/x-jquery-tmpl">
+    <span>
+        <img class="avatar" src="${user_avatar}"/>
+    </span>
+    <span class="name">${user_name}</span>
+</script>
+
+<script type="text/javascript">
+    DOUBAN.getUserBasicInfo({
+        id:$.url(window.location).param("personid"),
+        callback:function (user) {
+            var user_basic = new DOUBAN.BOOKS.DOMAIN.USER_BASIC(user.avatar, user.name);
+            $("#person-info").append($("#person-avatar-template").tmpl(user_basic));
+        }
+    });
+</script>
+
 </body>
 </html>

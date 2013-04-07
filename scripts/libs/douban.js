@@ -80,6 +80,7 @@ Some code is copied from jQuery 1.2.1 ( by John Resig ) which is licensed under 
     var ratp = 'rating-min={ratingmin}&rating-max={ratingmax}';
     var cp = 'apikey={apikey}&alt=xd&callback={callback}';
     var apis = {
+        getUserBasicInfo: {url:baseUri+'user/{id}'},
         getUser: {url:baseUri+'people/{id}'},
         searchUsers: {url:baseUri+'people?'+sp},
         getBook: {url:baseUri+'book/{id}'},

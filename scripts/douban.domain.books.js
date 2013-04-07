@@ -11,10 +11,9 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["CONTACT"] = function(contact) {
     }
     this.initial = getInitial(this.realname);
     this.description = contact.content;
-    this.page_url = contact.link.alternate;
-//    this.book_page_url = "http://book.douban.com/people/" + contact.nid;
-    this.book_page_url = "homepage.html";
     this.image_icon = contact.link.icon;
+    this.page_url = contact.link.alternate;
+    this.person_page_url = "homepage.html?personid=" + this.id + "&contact=" + contact;
     this._loaded_books = 1;
     this._all_books_loaded = false;
     this.load = function(amount) {
@@ -239,5 +238,16 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["TAGS"] = function(tags) {
             console.log("trying to attach the tag [" + tag.text + "] to [" + id + "]")
             $(id).addClass(tag.text)
         })
+    }
+};
+
+window["DOUBAN"]["BOOKS"]["DOMAIN"]["USER_BASIC"] = function(avatar, name) {
+    this.user_avatar = avatar;
+
+    var real_name = getRealname(name);
+    if (real_name == "") {
+        this.user_name = name;
+    }else{
+        this.user_name = real_name;
     }
 };
