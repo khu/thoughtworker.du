@@ -51,10 +51,10 @@
                 </form>
             </li>
             <li>
-                <a id="home" class="nav_tab home selected" href="#">首页</a>
+                <a id="home" class="nav_tab home selected" href="index.html">首页</a>
             </li>
             <li>
-                <a id="colleagues" class="nav_tab colleague" href="#colleagues_container">同事们</a>
+                <a id="colleagues" class="nav_tab colleague" href="colleagues.html">同事们</a>
             </li>
             <li>
                 <a class="nav_tab my-books" href="#">我的书</a>
@@ -130,6 +130,11 @@
         <a target="_blank" href="${my_book_url}">
             <img class="book" src="${image_url}"/>
         </a>
+        <div class="rating">
+            <span>评分</span>
+            <span class="rate">${rating_average}</span>
+            <span class="number-of-rater">(${num_of_raters}人评价)</span>
+        </div>
     </div>
 </script>
 

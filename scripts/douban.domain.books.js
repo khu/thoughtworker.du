@@ -86,6 +86,8 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOK"] = function(contact, book) {
   this.author = book.author[0];
   this.summary = book.summary;
   this.price = book.price;
+  this.rating_average = book.rating.average;
+  this.num_of_raters = book.rating.numRaters;
   this.my_book_url = "book.html?personid=" + (contact == null ? "":contact.id) + "&bookid=" + this.id;
 };
 
