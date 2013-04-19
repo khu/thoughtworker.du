@@ -205,13 +205,16 @@
   <script id="recent-people-template" type="text/x-jquery-tmpl">
     <div class="people clearfix">
       <div class="people-avatar">
-        <img class="avatar" src="${image_icon}" />
+          <a target="_blank" href="${person_page_url}">
+              <img class="avatar" src="${image_icon}" />
+          </a>
       </div>
       <div class="people-name">
-        <span>${name}</span>
-        <span class="update-time">5分钟前</span>
+          <a target="_blank" href="${person_page_url}">
+             <span>${name}</span>
+             <span class="update-time">5分钟前</span>
+          </a>
       </div>
-
     </div>
   </script>
   <script id="recent-book-template" type="text/x-jquery-tmpl">
