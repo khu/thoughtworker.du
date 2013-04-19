@@ -243,13 +243,23 @@ window["DOUBAN"]["BOOKS"]["DOMAIN"]["TAGS"] = function(tags) {
     }
 };
 
-window["DOUBAN"]["BOOKS"]["DOMAIN"]["USER_BASIC"] = function(avatar, name) {
-    this.user_avatar = avatar;
+window["DOUBAN"]["BOOKS"]["DOMAIN"]["USER_BASIC"] = function(user) {
+    this.name = user.name;
+    this.user_avatar = user.avatar;
+    this.person_page_url = "http://book.douban.com/people/" + user.id;
 
-    var real_name = getRealname(name);
+    var real_name = getRealname(this.name);
     if (real_name == "") {
-        this.user_name = name;
+        this.user_name = this.name;
     }else{
         this.user_name = real_name;
     }
+};
+
+window["DOUBAN"]["BOOKS"]["DOMAIN"]["BOOK_BASIC"] = function(book) {
+    this.image_icon = book.images.large;
+    this.title = book.title;
+    this.rating_average = book.rating.average;
+    this.num_of_raters = book.rating.numRaters;
+    this.my_book_url = "book.html?personid=&bookid=" + this.id;
 };

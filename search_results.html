@@ -39,8 +39,8 @@
                 <div>借书圈</div>
             </li>
             <li class="search">
-                <form action="search-result" class="search-form">
-                    <input id="search-input" class="search-input" type="text" placeholder="想添/借什么书">
+                <form action="search-result" name="searchform" class="search-form">
+                    <input id="search-input" name="input" class="search-input" type="text" placeholder="想添/借什么书">
                     <button id="search-button" class="search-button">
                         <i class="icon-search"></i>
                         搜索
@@ -75,11 +75,58 @@
                 </ul>
             </div>
         </div>
+
         <div id="search-result-content">
-            <div id="search-result-books-content">books</div>
-            <div id="search-result-colleagues-content" class="hide">colleagues</div>
+            <div id="search_results_for_books" class="search-result-container books row clearfix"></div>
+            <div id="search_results_for_colleagues" class="search-result-container books row clearfix"></div>
         </div>
     </section>
 </div>
+
+<script id="possession-book-template" type="text/x-jquery-tmpl">
+    <div class="book-section">
+        <div class="book">
+            <a target="_blank" data-book-id="${id}" title="${title}" href="${my_book_url}">
+                <img class="book-image" src="${image_icon}"/>
+                <div class="book-title" href="${my_book_url}">${title}</div>
+            </a>
+            <div class="rating">
+                <span>评分</span>
+                <span class="rate">${rating_average}</span>
+                <span class="number-of-rater">(${num_of_raters}人评价)</span>
+            </div>
+        </div>
+        <div class="people">
+            <div class="people-avatar">
+                <a target="_blank" href="homepage.html?personid=3561405">
+                    <img class="avatar" src="http://img3.douban.com/icon/u3561405-1.jpg" />
+                </a>
+            </div>
+            <div class="people-name">
+                <a target="_blank" href="homepage.html?personid=3561405">
+                    <span>胡凯</span>
+                    <span class="holder">等3人持有</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+<script type="text/javascript">
+//    var query = document.searchform['input'].value;
+    var query = "ruby";
+    DOUBAN.searchBooks({
+        q: query,
+        callback:function (results) {
+            var books = results.books;
+            for (var i=0; i<books.length; i++){
+                var book_basic = new DOUBAN.BOOKS.DOMAIN.BOOK_BASIC(books[i]);
+                $("#search_results_for_books").append($("#possession-book-template").tmpl(book_basic));
+            }
+        }
+    });
+</script>
+
 </body>
 </html>

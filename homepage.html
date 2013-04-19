@@ -142,7 +142,7 @@
     DOUBAN.getUserBasicInfo({
         id:$.url(window.location).param("personid"),
         callback:function (user) {
-            var user_basic = new DOUBAN.BOOKS.DOMAIN.USER_BASIC(user.avatar, user.name);
+            var user_basic = new DOUBAN.BOOKS.DOMAIN.USER_BASIC(user);
             $("#person-info").append($("#person-avatar-template").tmpl(user_basic));
         }
     });

@@ -30,7 +30,80 @@
 }
 
 #search-result-content {
-    padding-top: 20px;
-    padding-left: 17px;
+    padding: 20px;
     border-top: 1px solid white;
 }
+
+#search_results_for_books .book-section {
+    float: left;
+    width: 200px;
+    height: 430px;
+    box-shadow: 0 0 7px #d0d0d0;
+    margin: 14px 15px 37px 15px;
+}
+
+#search_results_for_books .book-section .book {
+    background: white;
+    height: 315px;
+    padding: 15px 15px 15px 15px;
+}
+
+#search_results_for_books .book-section .book .book-image {
+    width: 170px;
+    height: 250px;
+    margin-bottom: 10px;
+}
+
+#search_results_for_books .book-section .book .book-title {
+    margin: 5px 0;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    width: 170px;
+    white-space:nowrap;
+}
+
+#search_results_for_books .book-section .people {
+    background: #f2f2f2;
+    height: 50px;
+    padding: 15px 15px 15px 15px;
+}
+
+#search_results_for_books .book-section .people .people-avatar{
+    height: 50px;
+    float: left;
+    margin-right: 5px;
+}
+
+
+#search_results_for_books .book-section .people .people-name{
+    line-height: 28px;
+}
+
+#search_results_for_books .book-section .people .people-name span{
+    display: block;
+    color: #282828;
+    font-size: 14px;
+}
+
+#search_results_for_books .book-section .people .people-name .holder{
+    font-size: 12px;
+    color: #c2c2c2;
+}
+
+#search_results_for_books .book-section a {
+    display: block;
+}
+
+#search_results_for_books .book-section .book .rating {
+    text-align: left;
+    color: #666;
+}
+
+#search_results_for_books .book-section .book .rating .rate {
+    font-weight: bold;
+}
+
+#search_results_for_books .book-section .book .rating .number-of-rater {
+    color: #37a;
+}
+

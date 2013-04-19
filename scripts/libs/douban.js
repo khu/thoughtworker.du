@@ -85,7 +85,7 @@ Some code is copied from jQuery 1.2.1 ( by John Resig ) which is licensed under 
         searchUsers: {url:baseUri+'people?'+sp},
         getBook: {url:baseUri+'book/{id}'},
         getISBNBook: {url:baseUri+'book/subject/isbn/{isbn}'},
-        searchBooks: {url:baseUri+'book/subjects?tag={tag}&'+sp},
+        searchBooks: {url:baseUri+'book/search?q={q}'},
         getMovie: {url:baseUri+'movie/subject/{id}'},
         searchMovies: {url:baseUri+'movie/subjects?tag={tag}&'+sp},
         getMusic: {url:baseUri+'music/subject/{id}'},
