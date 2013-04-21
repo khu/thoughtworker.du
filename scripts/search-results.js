@@ -17,4 +17,10 @@ var searchResultListener = function (id) {
         $('#search-result-books-content').addClass('hide');
         $('#search-result-colleagues-content').removeClass('hide');
     });
+
+    $("#search-button").on("click", function () {
+        var str = "search_results.html?input="+document.searchform['input'].value;
+        window.location.replace(str);
+    });
+
 }

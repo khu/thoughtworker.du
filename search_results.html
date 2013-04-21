@@ -39,7 +39,7 @@
                 <div>借书圈</div>
             </li>
             <li class="search">
-                <form action="search-result" name="searchform" class="search-form">
+                <form action="search_results.html" name="searchform" class="search-form">
                     <input id="search-input" name="input" class="search-input" type="text" placeholder="想添/借什么书">
                     <button id="search-button" class="search-button">
                         <i class="icon-search"></i>
@@ -114,8 +114,9 @@
 
 
 <script type="text/javascript">
-//    var query = document.searchform['input'].value;
-    var query = "ruby";
+    var reg = new RegExp("input=(.*)");
+    var query = window.location.search.substr(1).match(reg)[1];
+
     DOUBAN.searchBooks({
         q: query,
         callback:function (results) {
