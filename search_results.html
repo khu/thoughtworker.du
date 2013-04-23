@@ -78,7 +78,9 @@
 
         <div id="search-result-content">
             <div id="search_results_for_books" class="search-result-container books row clearfix"></div>
-            <div id="search_results_for_colleagues" class="search-result-container books row clearfix"></div>
+            <div id="colleagues_container">
+                <div id="search_results_for_colleagues" class="colleagues_books_container books row clearfix hide"></div>
+            </div>
         </div>
     </section>
 </div>
@@ -111,7 +113,26 @@
         </div>
     </div>
 </script>
-
+<script id="search-books-template" type="text/x-jquery-tmpl">
+    <div class="book">
+        <a target="_blank" data-book-id="${id}" title="${title}" href="${my_book_url}">
+            <img class="small-book" alt="${title}" src="${cover_image_url}"/>
+        </a>
+        <a class="douban_book" href="${book_url}" style="display:none">${title}</a>
+    </div>
+</script>
+<script id="search-template" type="text/x-jquery-tmpl">
+    <div class="colleague-avatar">
+        <a target="_blank" href="${person_page_url}">
+            <img class="avatar" src="${image_icon}" />
+        </a>
+        <a target="_blank" href="${person_page_url}">
+            <span class="name">${realname}</span>
+            <span class="quantity">${totalBooks}</span>
+            <span class="unit">本</span>
+        </a>
+    </div>
+</script>
 
 <script type="text/javascript">
     var reg = new RegExp("input=(.*)");
@@ -127,6 +148,10 @@
             }
         }
     });
+
+    var contactsObj = new DOUBAN.BOOKS.DOMAIN.CONTACTS(DOUBAN.parseUsers(search_result_json).entries);
+    new DOUBAN.BOOKS.ONETIMEFETCHER(null, contactsObj, [new DOUBAN.BOOKS.SEARCHBOOKS('#search_results_for_colleagues')]).fetch_books();
+
 </script>
 
 </body>

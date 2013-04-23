@@ -689,3 +689,66 @@ var contact_json = { "author" : { "link" : [ { "@href" : "http://api.douban.com/
   "openSearch:totalResults" : { "$t" : "29" },
   "title" : { "$t" : "ThoughtWorks 关注的人" }
 }
+
+
+var search_result_json = { "author" : { "link" : [ { "@href" : "http://api.douban.com/people/54297336",
+    "@rel" : "self"
+},
+    { "@href" : "http://www.douban.com/people/thoughtworks/",
+        "@rel" : "alternate"
+    },
+    { "@href" : "http://img3.douban.com/icon/u54297336-3.jpg",
+        "@rel" : "icon"
+    }
+],
+    "name" : { "$t" : "ThoughtWorks" },
+    "uri" : { "$t" : "http://api.douban.com/people/54297336" }
+},
+    "entry" : [ { "content" : { "$t" : "" },
+        "db:attribute" : [  ],
+        "db:location" : { "$t" : "北京",
+            "@id" : "beijing"
+        },
+        "db:signature" : { "$t" : "" },
+        "db:uid" : { "$t" : "57926864" },
+        "id" : { "$t" : "http://api.douban.com/people/57926864" },
+        "link" : [ { "@href" : "http://api.douban.com/people/57926864",
+            "@rel" : "self"
+        },
+            { "@href" : "http://www.douban.com/people/57926864/",
+                "@rel" : "alternate"
+            },
+            { "@href" : "http://img3.douban.com/icon/user_normal.jpg",
+                "@rel" : "icon"
+            }
+        ],
+        "title" : { "$t" : "史小峰" },
+        "uri" : { "$t" : "http://api.douban.com/people/57926864" }
+    },
+        { "content" : { "$t" : "" },
+            "db:attribute" : [  ],
+            "db:location" : { "$t" : "北京",
+                "@id" : "beijing"
+            },
+            "db:signature" : { "$t" : "" },
+            "db:uid" : { "$t" : "1496700" },
+            "id" : { "$t" : "http://api.douban.com/people/1496700" },
+            "link" : [ { "@href" : "http://api.douban.com/people/1496700",
+                "@rel" : "self"
+            },
+                { "@href" : "http://www.douban.com/people/1496700/",
+                    "@rel" : "alternate"
+                },
+                { "@href" : "http://img3.douban.com/icon/user_normal.jpg",
+                    "@rel" : "icon"
+                }
+            ],
+            "title" : { "$t" : "王小峰" },
+            "uri" : { "$t" : "http://api.douban.com/people/1496700" }
+        }
+    ],
+    "openSearch:itemsPerPage" : { "$t" : "50" },
+    "openSearch:startIndex" : { "$t" : "1" },
+    "openSearch:totalResults" : { "$t" : "29" },
+    "title" : { "$t" : "ThoughtWorks 关注的人" }
+}

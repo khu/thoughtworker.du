@@ -9,13 +9,13 @@ var searchResultNavigation = function () {
 
 var searchResultListener = function (id) {
     $("#book-result").on("click", function () {
-        $('#search-result-books-content').removeClass('hide');
-        $('#search-result-colleagues-content').addClass('hide');
+        $('#search_results_for_books').removeClass('hide');
+        $('#search_results_for_colleagues').addClass('hide');
     });
 
     $("#colleague-result").on("click", function () {
-        $('#search-result-books-content').addClass('hide');
-        $('#search-result-colleagues-content').removeClass('hide');
+        $('#search_results_for_books').addClass('hide');
+        $('#search_results_for_colleagues').removeClass('hide');
     });
 
     $("#search-button").on("click", function () {

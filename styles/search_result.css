@@ -106,3 +106,7 @@
     color: #37a;
 }
 
+#search_results_for_colleagues {
+    border-top: 0px;
+    margin-top: -20px;
+}
